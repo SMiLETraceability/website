@@ -1,0 +1,16 @@
+@import url('register.css');
+@import url('signin.css');
+@import url('dashboard.css');
+@import url('sticky-footer-navbar.css');
+
+select[class*="span"] {
+    margin-bottom: 0;
+}
+
+.btn-group, .btn-group-vertical {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+}
+
+/*Autocomplete styles*/
