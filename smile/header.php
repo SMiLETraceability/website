@@ -35,7 +35,7 @@
     </head>
 
     <body
-        <?php if ($page = "index"){
+        <?php if ($page === "index"){
             echo "class=\"indeximg\"";
         }
         ?>
