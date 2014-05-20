@@ -13,10 +13,21 @@ $response =  rest_get($url,$headers);
 $data_arr = json_decode($response);
 $photo_url = $data_arr->{'product'}->{'photos'}[0];
 
-
+$prod_id = $data_arr->{'product'}->{'id'};
 $b_url  = APIURL."/business/".$data_arr->{'product'}->{'businessId'};
 $b_response =  rest_get($b_url,$headers);
 $b_data_arr = json_decode($b_response);
+
+
+
+//get activities from APIs
+
+$ac_url = APIURL."/activity/product/".$prod_id;
+$ac_response = rest_get($ac_url, $headers);
+$ac_data_arr = json_decode($ac_response);
+print_r($ac_response);
+print_r($prod_id);
+die();
 
 ?>
 <?php include('header.php'); ?>
@@ -55,7 +66,8 @@ $b_data_arr = json_decode($b_response);
 
 <div class="container-fluid">
 	<div class="jumbotron">
-	<p/>Get more info about this product using our mobile Apps!</p>
+	<p>This application is developed as part of the <a href="http://www.dotrural.ac.uk">RCUK dot.rural Digital Economy Hub</a> (<a href="http://www.dotrural.ac.uk/smile">SMiLE project</a>) at the University of Aberdeen.</p>
+	<p/>We are currently developing a dedicated mobile app for iOS and Android where you can get a better user experience</p>
 </br/>
 	<div class ="row"> <!--main row-->
           <div class="col-sm-9 col-sm-offset-0 col-md-10 col-md-offset-0 main">
