@@ -16,7 +16,6 @@ function addProduction(prod_id){
     else
     {
 
-
       $.ajax({
         type: "GET",
         url: "activity.php",
@@ -76,16 +75,21 @@ function addRecipe(prod_id){
     return false;
 }
 
-function addIngerdient(prod_id){   
-    var p_description = $("#production_description").val();
-    var p_video = $("#production_video").val();
+/*
+Ajax call for adding the ingredient activity
+*/
 
-    //var dataString = 'description='+ description + '&production_video=' + production_video;
+function addIngredient(prod_id){   
+    var i_name = $("#ingredient_name").val();
+    var i_description = $("#ingredient_description").val();
+    var i_image = $("#ingredient_image").val();
+    var i_producer_name = $("#ingredient_producer_name").val();
+    var i_producer_location = $("#ingredient_producer_location").val();
 
-    if(p_video=='' || p_description=='')
+    if(i_name=='' || i_description=='' || i_image=='' || i_producer_location=='' || i_producer_name=='')
     {
 
-      alert('Video url or production cannot be empty!');
+      alert('Image url, description, producer name or location cannot be empty!');
     }
     else
     {
@@ -95,7 +99,9 @@ function addIngerdient(prod_id){
         type: "GET",
         url: "activity.php",
         
-        data: "type=" + "PRODUCTION" + "&prodid=" + prod_id + "&p_description=" + p_description + "&p_video=" + p_video,
+        data: "type=" + "INGREDIENT" + "&prodid=" + prod_id +
+         "&i_name=" + i_name + "&i_description=" + i_description + "&i_image=" +
+          i_image + "&i_producer_name=" + i_producer_name + "&i_producer_location=" + i_producer_location,
 
         success:function(response){
         console.log(response);

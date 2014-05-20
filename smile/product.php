@@ -225,9 +225,9 @@ $data_arr = json_decode($response);
 							<p></p>
 							<div class="row">
 								<div class="form-group">
-									<label for="Recipe Image" class="col-sm-3 control-label">Image URL:</label>
+									<label for="Ingredient Image" class="col-sm-3 control-label">Image URL:</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="recipe_image" name="recipe_image" placeholder="Please enter an image url" title="Please enter image link." value="<?php echo isset($_POST['recipe_image'])?$_POST['recipe_image'] :''?>" required>
+										<input type="text" class="form-control" id="ingredient_image" name="ingredient_image" placeholder="Please enter an image url" title="Please enter image link." value="<?php echo isset($_POST['ingredient_image'])?$_POST['ingredient_image'] :''?>" required>
 									</div>
 								</div><!--End of .form-group-->
 							</div>
@@ -235,17 +235,13 @@ $data_arr = json_decode($response);
 							
 							<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/recipe_help.png" alt="">'>
 								Sample Preview
-							</button>						
+							</button>	
+							<button type="button" class="btn btn-primary" id="add-ingredient-btn" onclick="addIngredient('<?php echo $_GET['prodid'];?>')">Submit</button>
+
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-			<p><a href="activity-add.php?prodid=<?php echo $_GET['prodid'];?>&activityType=PRODUCTION" class="btn btn-primary btn-lg active" role="button">Add Production Info</a></p>
-			<a href="activity-add.php?prodid=<?php echo $_GET['prodid'];?>&activityType=INGREDIENT" class="btn btn-primary btn-lg active" role="button">Add Ingredient</a>
-			<a href="activity-add.php?prodid=<?php echo $_GET['prodid'];?>&activityType=RECIPE" class="btn btn-primary btn-lg active" role="button" >Add Recipes</a>
-
 		</div><!--End of .main-->
 	</div><!--End of .row-->
 </div><!--Container Ends here-->
