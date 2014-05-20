@@ -45,7 +45,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">SMiLE</a>
+                    <a class="navbar-brand" href="index.php">TrackMyFood!</a>
                 </div><!--End of .navbar-header-->
 
                 <div class="collapse navbar-collapse">
