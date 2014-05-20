@@ -5,6 +5,7 @@
         </div><!--End of .footer-->
 
         <!--JavaScript files:-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <!--Jquery UI autocomplete-->
 
@@ -16,6 +17,8 @@
             $('select[name="busiKey"]').find('option[value="<?php echo $_SESSION["account"]["currentBusinessKey"]; ?>"]').attr("selected",true);
             $('.selectpicker').selectpicker('show');
         </script>
+        <!--Activity-->
+        <script src="ext/js/activity.js"></script>
         <!--Search-->
         <script src="ext/js/search.js"></script>
         <!--Dynamic Forms-->

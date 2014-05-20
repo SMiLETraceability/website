@@ -13,4 +13,15 @@ select[class*="span"] {
 	vertical-align: top;
 }
 
+.divider {
+    border-top: 1px solid #000 !important;
+    border-bottom: 1px solid #000 !important;
+    height: 1px;
+}
+
+.popover{
+    display:block !important;
+    max-width: 400px!important;
+    width:auto;
+}
 /*Autocomplete styles*/

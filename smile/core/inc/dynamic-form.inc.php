@@ -27,7 +27,8 @@
 		}
 
 		for($index = 0; $index<sizeof($values); $index++){
-			$formArray[$keys[$index]]=$values[$index];
+			if(strlen($values[$index])>0)
+				$formArray[$keys[$index]]=$values[$index];
 		}
 
 		return $formArray;

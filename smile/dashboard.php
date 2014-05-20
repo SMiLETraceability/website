@@ -2,12 +2,14 @@
 <?php include('header.php'); ?>
 <?php 
 	$size = sizeof($_SESSION['account']['businessApiKeys']);
+
 	if($size > 0){
 		//$_SESSION['account']['currentBusinessKey'] = $_SESSION['account']['businessApiKeys'][0];
 
 		$url = APIURL."/business/".$_SESSION['account']['currentBusinessKey'];
 
-		$headers = array("Content-Type: application/json","ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a","Authorization: ".$_SESSION['account']['apiKey']);
+
+		$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"Authorization: ".$_SESSION['account']['apiKey']);
 
 		$response =  rest_get($url,$headers);
 

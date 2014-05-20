@@ -5,7 +5,7 @@
 	$url      = APIURL."/item/".$_GET['itmid'];
 
 	//Headers of the REST call:
-	$headers  = array("Content-Type: application/json","ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a","BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
+	$headers  = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
 
 	//GET the response from the REST call:
 	$response =  rest_get($url,$headers);
@@ -21,8 +21,8 @@
         	
 	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	          	<h1 class="page-header"><?php echo $data_arr->{'name'};?>&nbsp;&nbsp;
-	          		<a href="item-update.php?itmid=<?php echo $_GET['id'];?>" class="btn btn-primary btn-lg active" role="button" style="float:right;margin-left:5px">Update Item</a>&nbsp;&nbsp;
-	          		<a href="item-delete.php?itmid=<?php echo $_GET['id'];?>" class="btn btn-primary btn-lg active" role="button" style="float:right;">Remove Item</a>
+	          		<a href="item-update.php?itmid=<?php echo $_GET['itmid'];?>" class="btn btn-primary btn-lg active" role="button" style="float:right;margin-left:5px">Update Item</a>&nbsp;&nbsp;
+	          		<a href="item-delete.php?itmid=<?php echo $_GET['itmid'];?>" class="btn btn-primary btn-lg active" role="button" style="float:right;">Remove Item</a>
 	          	</h1>
 
 	          	<h3>Description: </h3>

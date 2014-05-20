@@ -4,6 +4,22 @@
 	//Check if the variables are set:
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 
+		//Check if the name is empty:
+		if(empty($_POST['name'])){
+			$errors[] = 'The name field cannot be empty.';
+		}
+
+		//Check if the description is empty:
+		if(empty($_POST['description'])){
+			$errors[] = 'The description field cannot be empty.';
+		}
+
+		//Check if the photos field is empty:
+		if(empty($_POST['product'])){
+			$errors[] = 'The product field cannot be empty.';
+		}
+		
+
 		//Get the properties (key-value pairings) from the dynamic form:
 		$properties = get_form_data_kv('property_label_','property_value_');
 
@@ -14,15 +30,21 @@
 		$dataArray = array(
 				'name' 			=> htmlentities($_POST['name']),
 				'description' 	=> htmlentities($_POST['description']),
-				'location' 		=> array(
+				/*'location' 		=> array(
 						'longitude'		=> htmlentities($_POST['longitude']),
 						'latitude'		=> htmlentities($_POST['latitude'])
-					),
-				'properties'	=> $properties,
-				'product' 		=> htmlentities($_POST['product']),
-				'tags'			=> $tags
+					),*/
+				//'properties'	=> $properties,
+				//'tags'			=> $tags,
+				'product' 		=> htmlentities($_POST['product'])
 		);
-		
+	
+		//add the optional fields if filled by the user
+		if($properties)
+			$dataArray['properties'] = $properties;
+		if($tags)
+			$dataArray['tags'] = $tags;
+
 		//API URL:
 		$url 	 = APIURL."/item";
 		
@@ -30,12 +52,31 @@
 		$data 	 = json_encode($dataArray);
 		
 		//Create the headers:
-		$headers = array("Content-Type: application/json","ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a","BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
+		$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
 		
 		//Create the REST call:
-		$status  = rest_post($url, $data, $headers);
+		$response  = rest_post($url, $data, $headers);
+	    
+	    $userobj = json_decode($response);
 
 		//print_r($status);
+
+		 //Get the status of the user (active/innactive):
+        $status = $userobj->{'statusCode'};
+
+        //Check if the product creation was successful:
+        if($status && $status!=200){
+        	$errors[] = $userobj->{'errors'}[0];
+            $errors[] = $userobj->{'moreInfo'};
+        }
+
+		//everything was successful, redirect to product view page
+        if(empty($errors)){
+        	$item_id = $userobj->{'id'};
+        	header("Location: item.php?itmid=$item_id");
+            die();  
+        }
+
 	}
 ?>
 <?php include('header.php'); ?>
@@ -49,7 +90,7 @@
 	          	<form class="form-horizontal form-item-add" method="post" role="form">
 
 					<div class="form-group">
-						<?php if(empty($errors)===false){ ?>
+						<?php if($errors){ ?>
 							<ul class="feedback-error">
 								<?php foreach ($errors as $error) {
 									echo "<li><p><span class=\"glyphicon glyphicon-remove form-control-feedback\"></span>&nbsp;&nbsp;{$error}</p></li>";
@@ -61,14 +102,14 @@
 	          		<div class="form-group">
 				    	<label for="name" class="col-sm-2 control-label">Name:</label>
 				    	<div class="col-sm-9">
-				      		<input type="text" class="form-control" id="Name" name="name" placeholder="Name" title="Please select an name." required>
+				      		<input type="text" class="form-control" id="Name" name="name" placeholder="Name" title="Please select an name." value="<?php echo isset($_POST['name'])?$_POST['name'] :''?>" required>
 				    	</div>
 				  	</div><!--End of .form-group-->
 
 				  	<div class="form-group">
 				    	<label for="description" class="col-sm-2 control-label">Description:</label>
 				    	<div class="col-sm-9">
-				      		<input type="text" class="form-control" id="Description" name="description" placeholder="Description" title="Please select a description." required>
+				      		<input type="text" class="form-control" id="Description" name="description" placeholder="Description" title="Please select a description." value="<?php echo isset($_POST['description'])?$_POST['description'] :''?>" required>
 				    	</div>
 				  	</div><!--End of .form-group-->
 
@@ -87,18 +128,18 @@
 				  	<div class="form-group">
 				    	<label for="product" class="col-sm-2 control-label">Product:</label>
 				    	<div class="col-sm-9">
-				      		<input type="text" class="form-control" id="product" name="product" placeholder="Product" title="Please enter a product." required>
+				      		<input type="text" class="form-control" id="product" name="product" placeholder="Product" title="Please enter a product." value="<?php echo isset($_POST['product'])?$_POST['product'] :''?>" required>
 				    	</div>
 				  	</div><!--End of .form-group-->
 
-				  	<div class="form-group">
+				  	<!--div class="form-group">
 				    	<label for="longitude" class="col-sm-2 control-label">Longitude:</label>
 				    	<div class="col-sm-9">
 				      		<input type="text" class="form-control" id="longitude" name="longitude" value=" " placeholder="Longitude">
 				    	</div>
 				  	</div><!--End of .form-group-->
 
-				  	<div class="form-group">
+				  	<!--iv class="form-group">
 				    	<label for="latitude" class="col-sm-2 control-label">Latitude:</label>
 				    	<div class="col-sm-9">
 				      		<input type="text" class="form-control" id="latitude" name="latitude" value=" " placeholder="Latitude">

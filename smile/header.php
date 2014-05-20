@@ -12,8 +12,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="SMiLE Project">
-        <meta name="author" content="Radu Marian Tutunaru">
-
+        <meta name="author" content="Radu Marian Tutunaru, Mujtaba Mehdi">
+   
         <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
 
         <title></title>

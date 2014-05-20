@@ -85,9 +85,9 @@
 
 			// //The header of the rest call:
 			if($auth === null){
-				$headers = array("Content-Type: application/json","ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a");
+				$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY);
 			}else{
-				$headers = array("Content-Type: application/json","ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a","BusinessAuthorization: ".$auth, "Authorization: ".$_SESSION['account']['apiKey']);
+				$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$auth, "Authorization: ".$_SESSION['account']['apiKey']);
 			}
 
 			//print_r($headers);
@@ -95,11 +95,15 @@
 			//Get the status code of the rest call:
 			$response = rest_post($url, $data, $headers);
 
-			//Print the rest call, test purposes:
-			print_r($response);
-
 			//Decode JSON respones:
 			$data_arr = json_decode($response);
+			
+			$status = $data_arr->{'statusCode'};
+	        //Check if the business registration was successful:
+	        if($status && $status!=200){
+	        	//$errors[] = $data_arr->{'errors'}[0];
+	            $errors[] = $data_arr->{'moreInfo'};
+	        }
 
 			//Do something with the status call:
 			if(isset($data_arr->{'email'})){
@@ -112,12 +116,9 @@
 					header('Location: dashboard.php');
 					die();
 				}
-			}else{
-				$errors[] = "This action could not be completed.";
 			}
-		}		
+		}	
 	}
-
 ?>
 <?php include('header.php');?>
 		<div class="container">
@@ -125,7 +126,7 @@
 				<h2 class="form-register-heading">Please register your business account:</h2>
 
 				<div class="form-group">
-					<?php if(empty($errors)===false){ ?>
+					<?php if($errors){ ?>
 						<ul class="feedback-error">
 							<?php foreach ($errors as $error) {
 								echo "<li><p><span class=\"glyphicon glyphicon-remove form-control-feedback\"></span>&nbsp;&nbsp;{$error}</p></li>";
@@ -137,63 +138,63 @@
 				<div class="form-group">
 			    	<label for="bname" class="col-sm-2 control-label">Business Name:</label>
 			    	<div class="col-sm-10">
-			      		<input type="text" class="form-control" id="bname" name="bname" placeholder="Business Name" title="Enter your business name." required autofocus>
+			      		<input type="text" class="form-control" id="bname" name="bname" placeholder="Business Name" title="Enter your business name." value="<?php echo isset($_POST['bname'])?$_POST['bname'] :''?>" required autofocus />
 			    	</div>
 			  	</div><!--End of .form-group-->
 
 			  	<div class="form-group">
 			    	<label for="description" class="col-sm-2 control-label">Business Description:</label>
 			    	<div class="col-sm-10">
-			      		<input type="text" class="form-control" id="description" name="description" placeholder="Business Description" title="Enter your business description." required autofocus>
+			      		<input type="text" class="form-control" id="description" name="description" placeholder="Business Description" title="Enter your business description." value="<?php echo isset($_POST['description'])?$_POST['description'] :''?>" required autofocus />
 			    	</div>
 			  	</div><!--End of .form-group-->
 
 			  	<div class="form-group">
 			    	<label for="telephone" class="col-sm-2 control-label">Telephone Number:</label>
 			    	<div class="col-sm-10">
-			      		<input type="text" class="form-control" id="telephone" name="telephone" placeholder="Telephone Number" title="Enter your telephone number." required autofocus>
+			      		<input type="text" class="form-control" id="telephone" name="telephone" placeholder="Telephone Number" title="Enter your telephone number." value="<?php echo isset($_POST['telephone'])?$_POST['telephone'] :''?>" required autofocus />
 			    	</div>
 			  	</div><!--End of .form-group-->
 
 			  	<div class="form-group">
 			    	<label for="photos" class="col-sm-2 control-label">Photo URL:</label>
 			    	<div class="col-sm-10">
-			      		<input type="photos" class="form-control" id="photos" name="photos" placeholder="Photo Url" required>
+			      		<input type="photos" class="form-control" id="photos" name="photos" placeholder="Photo Url" value="<?php echo isset($_POST['photos'])?$_POST['photos'] :''?>" required />
 			    	</div>
 			  	</div><!--End of .form-group-->
 
 			  	<div class="form-group">
 			    	<label for="number" class="col-sm-2 control-label">Street Number:</label>
 			    	<div class="col-sm-10">
-			      		<input type="text" class="form-control" id="number" name="number" placeholder="Street Number" title="Please enter your street number.">
+			      		<input type="text" class="form-control" id="number" name="number" placeholder="Street Number" title="Please enter your street number." value="<?php echo isset($_POST['number'])?$_POST['number'] :''?>" />
 			    	</div>
 			  	</div><!--End of .formg-group-->
 
 			  	<div class="form-group">
 			    	<label for="street" class="col-sm-2 control-label">Street Name:</label>
 			    	<div class="col-sm-10">
-			      		<input type="text" class="form-control" id="street" name="street" placeholder="Street" title="Please enter your street name.">
+			      		<input type="text" class="form-control" id="street" name="street" placeholder="Street" title="Please enter your street name." value="<?php echo isset($_POST['street'])?$_POST['street'] :''?>" />
 			    	</div>
 			  	</div><!--End of .formg-group-->
 
 			  	<div class="form-group">
 			    	<label for="postcode" class="col-sm-2 control-label">Postcode:</label>
 			    	<div class="col-sm-10">
-			      		<input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode" title="Please enter your postcode.">
+			      		<input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode" title="Please enter your postcode." value="<?php echo isset($_POST['postcode'])?$_POST['postcode'] :''?>" />
 			    	</div>
 			  	</div><!--End of .formg-group-->
 
 			  	<div class="form-group">
 			    	<label for="county" class="col-sm-2 control-label">County:</label>
 			    	<div class="col-sm-10">
-			      		<input type="text" class="form-control" id="county" name="county" placeholder="County" title="Please enter your county name.">
+			      		<input type="text" class="form-control" id="county" name="county" placeholder="County" title="Please enter your county name." value="<?php echo isset($_POST['county'])?$_POST['county'] :''?>" />
 			    	</div>
 			  	</div><!--End of .formg-group-->
 
 			  	<div class="form-group">
 			    	<label for="country" class="col-sm-2 control-label">Country:</label>
 			    	<div class="col-sm-10">
-			      		<input type="text" class="form-control" id="country" name="country" placeholder="Country" title="Please enter your country name.">
+			      		<input type="text" class="form-control" id="country" name="country" placeholder="Country" title="Please enter your country name." value="<?php echo isset($_POST['country'])?$_POST['country'] :''?>" />
 			    	</div>
 			  	</div><!--End of .formg-group-->
 
@@ -201,7 +202,7 @@
 			  	<div class="form-group">
 			    	<label for="email" class="col-sm-2 control-label">E-mail:</label>
 			    	<div class="col-sm-10">
-			      		<input type="email" class="form-control" id="email" name="email" placeholder="E-mail Address" required>
+			      		<input type="email" class="form-control" id="email" name="email" placeholder="E-mail Address" required value="<?php echo isset($_POST['email'])?$_POST['email'] :''?>" />
 			    	</div>
 			  	</div><!--End of .form-group-->
 			  

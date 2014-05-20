@@ -4,7 +4,7 @@
 	//Api URL:
 	$url = APIURL."/auth/all/logout";
 	//Header of the API:
-	$headers = array('Content-Type: application/json',"ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a", 'Authorization: '.$_SESSION['account']['apiKey']);
+	$headers = array('Content-Type: application/json',"ApplicationAuthorization: ".API_APP_KEY, 'Authorization: '.$_SESSION['account']['apiKey']);
 	//Data array of the API:
 	$data = array();
 
@@ -13,8 +13,8 @@
 	//Decode the response:
 	$statusobj = json_decode($status);
 
-	//Clear the session object:
-	if($statusobj==="LOGOUT_SUCCESSFUL"){
+	//Clear the session object: 
+	if($statusobj==="LOGOUT_SUCCESSFUL" || $statusobj==="LOGOUT_FAILED"){
 	 	$_SESSION = array();
 	 	session_destroy();
 	 	header('Location: login.php');

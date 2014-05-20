@@ -3,7 +3,7 @@
 	session_start();
 
 	//Create an exception page array:
-	$exceptions = array('register-business','login','index');
+	$exceptions = array('register-business','login','index', 'item-web','item-web_');
 
 	//Find out the current page name:
 	$exploded = explode('/', $_SERVER['SCRIPT_NAME']);
@@ -17,7 +17,13 @@
 		}
 	}
 
+
 	//API URL constant:
+
+	//Application Authorization Key
+	define("API_APP_KEY","aafa460be460462dcb7e56fda6d2217a");
+ 	define("API_MOBILE_KEY","aba778b08bf5d2376ce2c7bd0be60ba7");
+
 	//Development mode:
 	define("APIURL","http://smile.abdn.ac.uk:8080/smile-server/api-1.1");
 	//Deployment mode:

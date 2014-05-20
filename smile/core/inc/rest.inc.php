@@ -40,6 +40,12 @@
 		curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
 
 		$response = curl_exec($handle);
+
+		if(curl_errno($handle))
+		{
+		    echo 'curl error:' . curl_error($handle);
+		}
+
 		$code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
 		curl_close($handle);
 		return $response;
@@ -76,7 +82,7 @@
 	*         $data     - JSON obj - The input data as a JSON object.
 	* @return $response - JSON obj - The response as a JSON object.
 	*/
-	function rest_put($url, $headers, $data){
+	function rest_put($url, $data, $headers){
 		$handle = curl_init();
 
 		curl_setopt($handle, CURLOPT_URL, $url);
@@ -87,6 +93,7 @@
 		curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
 
 		$response = curl_exec($handle);
+
 		$code = curl_getinfo($handle,CURLINFO_HTTP_CODE);
 		curl_close($handle);
 		return $response;

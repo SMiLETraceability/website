@@ -27,7 +27,7 @@
         $url = APIURL."/auth";
 
         //Header of the API:
-        $headers = array('Content-Type: application/json',"ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a");
+        $headers = array('Content-Type: application/json',"ApplicationAuthorization: ".API_APP_KEY);
         
         //Data array of the API:
         $dataArray = array(
@@ -51,7 +51,7 @@
         //Check if the login was successful:
         if($status!=200){
         	$errors[] = $userobj->{'errors'}[0];
-            $errors[] = $userobj->{'moreInfo'}; 
+            $errors[] = $userobj->{'moreInfo'};
         }else if($status==200){
             //Create the session:
             if(empty($errors)){
@@ -72,7 +72,7 @@
                     //URL of the REST call:
                     $url = APIURL."/business/".$_SESSION['account']['businessApiKeys'][$index];
                     //Headers of the REST call:
-                    $headers = array("Content-Type: application/json","ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a","Authorization: ".$_SESSION['account']['apiKey']);
+                    $headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"Authorization: ".$_SESSION['account']['apiKey']);
                     //REST response:
                     $response =  rest_get($url,$headers);
                     //Decode JSON object:
@@ -89,6 +89,7 @@
                 //print_r($_SESSION['account']);
                 //Redirect to the dashboard: 
                 header('Location: dashboard.php');
+
                 die();   
             }
         }
