@@ -1,5 +1,7 @@
 <?php include('core/init.core.php');?>
 <?php
+	
+	$errors = array();
 
 	//Check if the variables are set:
 	if($_SERVER['REQUEST_METHOD']=='POST'){

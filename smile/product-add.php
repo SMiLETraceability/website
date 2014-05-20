@@ -1,6 +1,8 @@
 <?php include('core/init.core.php');?>
 <?php
 	
+	$errors = array();
+	
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 
 		//Check if the name is empty:
