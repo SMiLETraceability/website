@@ -39,5 +39,11 @@
         <?php } ?>
         <!--QR-->
         <script src="ext/js/printQR.js"></script>
+        
+        <!-- Leaflet Maps -->
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+        
+        <!--Traceability Web-->
+        <script src="ext/js/traceability.js"></script>
     </body>
 </html>

@@ -13,14 +13,16 @@
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{235, 878}</string>
+		<string>{163, 822}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
 	<key>com.macrabbit.Espresso.FileManager.FileControllerState</key>
 	<dict>
 		<key>ExpandedURLs</key>
-		<array/>
+		<array>
+			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards</string>
+		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
 	<false/>
@@ -36,13 +38,55 @@
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/item-web.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/RECIPE.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/css/style.css</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/PRODUCTION.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
 				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/header.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/item-web.php</string>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/footer.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/js/traceability.js</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/PRODUCER.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/DESCRIPTION.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
