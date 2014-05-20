@@ -19,6 +19,9 @@
         </script>
         <!--Activity-->
         <script src="ext/js/activity.js"></script>
+
+        <script src="ext/js/addBatchItems.js"></script>
+        
         <!--Search-->
         <script src="ext/js/search.js"></script>
         <!--Dynamic Forms-->
