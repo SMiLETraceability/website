@@ -32,6 +32,8 @@ select[class*="span"] {
 .jumbotron h1, .jumbotron .paratop{
     color:#fff;
     text-shadow: 1px 1px 1px #000;
+    padding-left:15px;
+    padding-right:15px;
 }
 
 .indeximg{
