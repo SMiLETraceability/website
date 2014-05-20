@@ -10,17 +10,17 @@ span.glyphicon-pencil {
 <!--Add information about the homepage here-->
 <script src="" type="text/javascript">
 $(document).ready(function(){
-  $("#textToggle").click(function(){
-    $("#moreInfo").toggle();
-  });
+    $("#textToggle").click(function(){
+      $("#moreInfo").toggle();
+    });
 });
 </script>
 
 <div class="jumbotron">
 <div class="container">
   <h1>TrackMyFood!</h1>
-  <h3>more than just a label</h3>
-  <p>TrackMyFood is a tool that enables rural food producers to communicate detailed information about their products to their customers. </p>
+  <h3 class="paratop">more than just a label</h3>
+  <p class="paratop">TrackMyFood is a tool that enables rural food producers to communicate detailed information about their products to their customers. </p>
   
   <div class="container" id="moreInfo">
   

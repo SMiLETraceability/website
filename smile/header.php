@@ -34,7 +34,12 @@
         <![endif]-->
     </head>
 
-    <body>
+    <body
+        <?php if ($page = "index.php"){
+            echo "class=\"indeximg\"";
+        }
+        ?>
+    >
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">

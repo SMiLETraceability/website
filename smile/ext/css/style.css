@@ -24,4 +24,21 @@ select[class*="span"] {
     max-width: 400px!important;
     width:auto;
 }
+
+.jumbotron{
+    background-color:transparent !important;
+}
+
+.jumbotron h1, .jumbotron .paratop{
+    color:#fff;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.indeximg{
+    background: url(../img/background.jpg) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
 /*Autocomplete styles*/
