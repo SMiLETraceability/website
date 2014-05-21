@@ -75,7 +75,7 @@ $ac_data_arr = json_decode($ac_response);
 	
 	<div class="alert alert-info">
 	  <p>This application is developed as part of the <a href="http://www.dotrural.ac.uk/smile">SMiLE project</a> from the <a href="http://www.dotrural.ac.uk">RCUK dot.rural Digital Economy Hub</a> at the University of Aberdeen.</p>
-	  <p/>We are currently developing a dedicated mobile app for iOS and Android for the purpose opt enhancing the user experience. Please watch this space for updates.</p>
+	  <p/>We are currently developing a dedicated mobile app for iOS and Android for the purpose of enhancing the user experience. Please watch this space for updates.</p>
 	</div>
 
 </div>
