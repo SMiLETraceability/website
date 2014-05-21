@@ -25,7 +25,6 @@ $dataActivitiesArray   = json_decode($responseActivities);
 
 print_r($dataActivitiesArray);
 echo "<br /><br /><br />";
-echo ;
 
 ?>
 
@@ -42,10 +41,42 @@ echo ;
 			</h1>
 
 			<h3>Provenance:</h3>
+			<div class="table-responsive" style="clear:both;">
+	            	<table class="table table-striped footable" data-page-size="10">
+	              		<thead>
+	                		<tr>
+	                			<th>Number:</th>
+	                  			<th>Activity Type:</th>
+	                  			<th colspan="5">Information:</th>
+	                  			<th colspan="2">Options:</th>
+	                		</tr>
+	              		</thead>
+	              		<tbody>
+	        <?php $k =0; ?>
 			<?php for($index=0; $index<sizeof($dataActivitiesArray->{'activities'}); $index++){
-			}
+				$k++;
+				echo "<tr>";
+				echo "<td>".$k."</td>";
+				echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'type'}."</td>";
+				if($dataActivitiesArray->{'activities'}[$index]->{'type'} === "PRODUCTION"){
+					echo "<td colspan=\"3\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'description'}."</td>";
+					echo "<td colspan=\"1\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'video'}."</td>";
+					echo "<td colspan=\"1\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'image'}."</td>";
+				}else if($dataActivitiesArray->{'activities'}[$index]->{'type'} === "RECIPE"){
+					echo "<td colspan=\"3\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'description'}."</td>";
+					echo "<td colspan=\"2\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'image'}."</td>";
+				}if($dataActivitiesArray->{'activities'}[$index]->{'type'} === "INGREDIENTS"){
+					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'name'}."</td>";
+					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'description'}."</td>";
+					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'producer'}."</td>";
+					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'location'}."</td>";
+					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'image'}."</td>";
+				}
 
-			?>
+			}?>
+						</tbody>
+					</table>
+			</div>
 
 			<h3>Description: </h3>
 			<p><?php echo $data_arr->{'description'};?></p>
