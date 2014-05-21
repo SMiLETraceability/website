@@ -44,7 +44,23 @@ if($activity === "production"){
 			)
 		);
 
-	print_r($dataArr);
+	//URL of the REST call:
+	$url 	 = APIURL."/activity";
+
+	//Encode data array as JSON:
+	$data 	 = json_encode($dataArr);
+
+	//Create the headers:
+	$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
+
+	//Create the REST call:
+	$response  = rest_post($url, $data, $headers);
+
+	//Decode the json object:
+	$userobj = json_decode($response);
+
+	header("Location: product.php?prodid=".$prod_id."&activity=".$activity);
+	die();
 
 
 }else if($activity === "recipe") {
@@ -75,66 +91,72 @@ if($activity === "production"){
 			)
 		);
 
-	print_r($dataArr);
+	//URL of the REST call:
+	$url 	 = APIURL."/activity";
+
+	//Encode data array as JSON:
+	$data 	 = json_encode($dataArr);
+
+	//Create the headers:
+	$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
+
+	//Create the REST call:
+	$response  = rest_post($url, $data, $headers);
+
+	//Decode the json object:
+	$userobj = json_decode($response);
+
+	header("Location: product.php?prodid=".$prod_id."&activity=".$activity);
+	die();
 
 }else if($activity === "ingredient"){
 
-	if(isset($_GET['ingredient_name'])){
-		$i_name = $_GET['ingredient_name'];	//ingredient name
+	//Get all the names of all the ingredients:
+	$ingredientNames 		 			= get_form_data_v('ingredient_name_');
+	//Get all the descriptions of all the ingredients:
+	$ingredientDescriptions  			= get_form_data_v('ingredient_description_');
+	//Get all the images of all the ingredients:
+	$ingredientImages 		 			= get_form_data_v('ingredient_image_');
+	//Get all the producer names of all the ingredients:
+	$ingredientProducerNames 		    = get_form_data_v('ingredient_producer_name_');
+	//Get all the producer locations of all the ingredients:
+	$ingredientProducerLocations        = get_form_data_v('ingredient_producer_location_');
+
+	//All arrays have the same size:
+	for ($index=0; $index<sizeof($ingredientNames); $index++){
+		$dataArr = array(
+					'type'=>$activity,
+					'entity'=>'product',
+					'recordId'=>$prod_id,
+					'context'=> array(
+						'name' 		  => $ingredientNames[$index],
+						'description' => $ingredientDescriptions[$index], 
+						'image' 	  => $ingredientImages[$index],
+						'producer'    => $ingredientProducerNames[$index],
+						'location'    => $ingredientProducerLocations[$index]
+						)
+					);
+		//URL of the REST call:
+		$url 	 = APIURL."/activity";
+
+		//Encode data array as JSON:
+		$data 	 = json_encode($dataArr);
+
+		//Create the headers:
+		$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
+
+		//Create the REST call:
+		$response  = rest_post($url, $data, $headers);
+
+		//Decode the json object:
+		$userobj = json_decode($response);
+		
+		//Empty array, to repeat the process:
+		$dataArr = array();
 	}
 
-	if(isset($_GET['ingredient_description'])){
-		$i_description = $_GET['ingredient_description'];	//ingredient name
-	}
-
-	if(isset($_GET['ingredient_image'])){
-		$i_image = $_GET['ingredient_image'];	//ingredient image
-	}
-
-	if(isset($_GET['ingredient_producer_name'])){
-		$i_producer_name = $_GET['ingredient_producer_name'];	//ingredient producer name
-	}
-
-	if(isset($_GET['ingredient_producer_location'])){
-		$i_producer_location = $_GET['ingredient_producer_location'];	//ingredient producer location
-	}
-
-	$dataArr = array(
-		'type'=>$activity,
-		'entity'=>'product',
-		'recordId'=>$prod_id,
-		'context'=> array(
-			'name' => $i_name,
-			'description'=> $i_description, 
-			'image' => $i_image,
-			'producer' => $i_producer_name,
-			'location' => $i_producer_location
-			)
-		);
-
-	print_r($dataArr);
-
+	header("Location: product.php?prodid=".$prod_id."&activity=".$activity);
+	die();
 }
 
-//URL of the REST call:
-$url 	 = APIURL."/activity";
-
-//Encode data array as JSON:
-$data 	 = json_encode($dataArr);
-
-//Create the headers:
-$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
-
-//Create the REST call:
-$response  = rest_post($url, $data, $headers);
-
-//Decode the json object:
-$userobj = json_decode($response);
-
-//If there are any errors, append them to the errors notification:
-//header("Location: product.php?prodid=".$prod_id."&activity=".$activity);
-//die();
-
-//Response testing:
-print_r($response);
 ?>
