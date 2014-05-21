@@ -197,49 +197,19 @@ $data_arr = json_decode($response);
 					<div id="collapseThree" class="panel-collapse collapse">
 						<div class="panel-body">
 
-							<form class="form-horizontal form-subingredients-add" action="activity.php?activity=ingredient&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
+							<form class="form-horizontal form-subingredients-add ingredients" action="activity.php?activity=ingredient&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
 
 							<div class="alert alert-info col-md-11">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								<strong>Tip: </strong> The fields of this panel marked with an asterisk (*) are mandatory. All the other fields are optional.
 							</div><!--End of .alert-->
 							
-							<div class="form-group">
-								<label for="Ingredient Name" class="col-sm-3 control-label">Ingredient Name:</label>
-								<div class="col-md-8">
-									<input type="text" class="form-control" id="ingredient_name" name="ingredient_name" placeholder="Ingredient Name" title="Please input a ingredient name." value="<?php echo isset($_POST['ingredient_name'])?$_POST['ingredient_name'] :''?>" required>
-								</div>
-							</div><!--End of .form-group-->
+							<div class="theingredients">
+							</div>
 
-							<div class="form-group">
-								<label for="Ingredient Description" class="col-sm-3 control-label">Ingredient Details:</label>
-								<div class="col-md-8">
-									<textarea type="text" rows="5" class="form-control" id="ingredient_description" name="ingredient_description" title="Please enter ingredient details." value="<?php echo isset($_POST['ingredient_description'])?$_POST['ingredient_description'] :''?>" required></textarea>
-								</div>
-							</div><!--End of .form-group-->
+							<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/recipe_help.png" alt="">'>Sample Preview</button>
 
-							<div class="form-group">
-								<label for="ingredient_producer_name" class="col-sm-3 control-label">Producer Name:</label>
-								<div class="col-md-8">
-									<input type="text" class="form-control" id="ingredient_producer_name" name="ingredient_producer_name" placeholder="Ingredient Producer Name" title="Please input a ingredient producer name." value="<?php echo isset($_POST['ingredient_producer_name'])?$_POST['ingredient_producer_name'] :''?>" required>
-								</div>
-							</div><!--End of .form-group-->
-
-							<div class="form-group">
-								<label for="ingredient_producer_location" class="col-sm-3 control-label">Producer Location:</label>
-								<div class="col-md-8">
-									<input type="text" class="form-control" id="ingredient_producer_location" name="ingredient_producer_location" placeholder="Ingredient Producer Location" title="Please input a ingredient producer location." value="<?php echo isset($_POST['ingredient_producer_location'])?$_POST['ingredient_producer_location'] :''?>" required>
-								</div>
-							</div><!--End of .form-group-->
-
-							<div class="form-group">
-								<label for="Ingredient Image" class="col-sm-3 control-label">Image URL:</label>
-								<div class="col-md-8">
-									<input type="text" class="form-control" id="ingredient_image" name="ingredient_image" placeholder="Please enter an image url" title="Please enter image link." value="<?php echo isset($_POST['ingredient_image'])?$_POST['ingredient_image'] :''?>" required>
-								</div>
-							</div><!--End of .form-group-->
-
-							<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/recipe_help.png" alt="">'>Sample Preview</button>	
+							<button type="button" class="btn btn-info add-more-ingredients">Add Another Ingredient</button>
 
 							<button type="submit" class="btn btn-primary" id="add-ingredient-btn">Submit</button>
 
@@ -253,4 +223,4 @@ $data_arr = json_decode($response);
 	</div><!--End of .row-->
 </div><!--Container Ends here-->
 
-	<?php include('footer.php'); ?>
+<?php include('footer.php'); ?>

@@ -30,6 +30,7 @@
         <script src="ext/js/addTags.js"></script>
         <script src="ext/js/addIdentifiers.js"></script>
         <script src="ext/js/addCategories.js"></script>
+        <script src="ext/js/addIngredients.js"></script>
         <!--Geolocation-->
         <script src="ext/js/geolocation.js"></script>
         <?php if ($page === "item-add") { ?>
