@@ -20,7 +20,7 @@
 		
 		<!-- to be replaced with openstreetmap -->
 		<script type="text/javascript">
-		 document.getElementById('producer-map').setAttribute('src', 'https://maps.google.co.uk/?q=AB355SD&z=10&output=embed');
+		 document.getElementById('producer-map').setAttribute('src', 'https://maps.google.co.uk/?q=<?php echo $b_data_arr->{'address'}->{'postcode'}; ?>&z=10&output=embed');
 		</script>
 		
 	</div>

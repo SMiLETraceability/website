@@ -28,7 +28,7 @@ $size = sizeof($data_arr->{'products'});
 			<h2 class="sub-header">Products:</h2>
 
 			<div class="table-responsive">
-				<table class="table table-striped">
+				<table class="table table-striped footable" data-page-size="10">
 					<thead>
 						<tr>
 							<th>No:</th>
@@ -54,6 +54,13 @@ $size = sizeof($data_arr->{'products'});
 						}
 						?>
 					</tbody>
+					<tfoot>
+							<tr>
+								<td colspan="7">
+									<div class="pagination pagination-centered hide-if-no-paging"></div>
+								</td>
+							</tr>
+					</tfoot>
 				</table>
 			</div><!--End of table-responsive-->
 
