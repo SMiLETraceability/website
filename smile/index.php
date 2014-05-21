@@ -32,7 +32,7 @@ $(document).ready(function(){
     
          <div class="row">
             <div class="col-md-1"><span class="glyphicon glyphicon-pencil largeicon"></span></div>
-            <div class="col-md-11"><p>Producers can register into TrackMyFood and provide information about their business (name, location and contact details) and their products (ingredients, provenance, selling points and much more)</p></div>
+            <div class="col-md-11"><p>Producers can register with TrackMyFood and provide information about their business (name, location and contact details) and their products (ingredients, provenance, selling points and much more)</p></div>
           </div>
     
     <div class="row">

@@ -46,5 +46,17 @@
         
         <!--Traceability Web-->
         <script src="ext/js/traceability.js"></script>
+        
+        <!--Table Pagination-->
+       <script src="ext/js/footable.js" type="text/javascript"></script>
+       <script src="ext/js/footable.paginate.js" type="text/javascript"></script>
+        
+        
+        <script type="text/javascript">
+        	$(function () {
+        		$('.footable').footable();
+        	});
+        	
+        </script>
     </body>
 </html>

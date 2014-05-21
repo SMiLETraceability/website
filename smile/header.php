@@ -26,6 +26,9 @@
         <!-- Custom styles for this template -->
         <link href="ext/css/style.css" rel="stylesheet">
         <link href="ext/js/select2/select2-bootstrap.css">
+        
+        <link href="ext/css/footable.standalone.css" rel="stylesheet" type="text/css" />
+        <link href="ext/css/footable.core.css" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>

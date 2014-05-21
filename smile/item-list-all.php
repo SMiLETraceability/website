@@ -25,7 +25,7 @@
 	          	<h1 class="page-header">All items:&nbsp;&nbsp;<a href="item-add.php" class="btn btn-primary btn-lg active" role="button" style="float:right;">Add Item</a></h1>
 	          	
 	          	<div class="table-responsive" style="clear:both;">
-	            	<table class="table table-striped">
+	            	<table class="table table-striped footable" id="table-items" data-page-size="10">
 	              		<thead>
 	                		<tr>
 	                			<th>Number:</th>
@@ -50,6 +50,13 @@
 							}
 	              			?>
 	              		</tbody>
+	              		<tfoot>
+	              				<tr>
+	              					<td colspan="7">
+	              						<div class="pagination pagination-centered hide-if-no-paging"></div>
+	              					</td>
+	              				</tr>
+	              		</tfoot>
 	            	</table>
 	          	</div><!--End of table-responsive-->
 	        </div><!--End of .main-->
