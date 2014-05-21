@@ -71,7 +71,7 @@ $size = sizeof($data_arr->{'products'});
 									<div class="modal-body">
 										<ul class="nav nav-list">
 											<li class="nav-header">Number of items</li>
-											<li><input class="input-xlarge" value="0" type="text" name="no_items"></li>
+											<li><input class="input-xlarge" value="0" type="text" name="no_items" id="no_items"></li>
 											<input type="hidden" name="hidden_field" value="" id="hidden_field" />
 										</ul> 
 									</div>
