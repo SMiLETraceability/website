@@ -1,3 +1,4 @@
+
 <!--
 <div class="panel panel-default">
 	<div class="panel-heading">What did we use?</div>
@@ -13,7 +14,7 @@
                     <img src="<?php echo $item->{'context'}->{'image'}?>" class="panel-image-preview">
                 </div>
                 <div class="panel-body">
-                    <h4>How to use this product?</h4>
+                    <h4>What did we use?</h4>
                     <p><?php echo $item->{'context'}->{'description'}?> </p>
                 </div>
                 <div class="panel-footer text-center">
