@@ -8,8 +8,21 @@
 		<p><strong>Email: </strong><?php echo $b_data_arr->{'email'}; ?></p>
 		</div>
 		
+			<p><a href="#" id="bdesc" class="btn btn-primary btn-lg" role="button">Find out more »</a></p>
+	
 		
-		<p><a href="#" id="bdesc" class="btn btn-primary btn-lg" role="button">Find out more »</a></p>
+		<div>
+			<iframe id="producer-map" width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/?output=embed"></iframe>	
+		</div>
+		
+		<div id="map-producer">
+		</div>
+		
+		<!-- to be replaced with openstreetmap -->
+		<script type="text/javascript">
+		 document.getElementById('producer-map').setAttribute('src', 'https://maps.google.co.uk/?q=AB355SD&z=10&output=embed');
+		</script>
+		
 	</div>
 </div>
 

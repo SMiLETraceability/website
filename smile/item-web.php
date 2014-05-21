@@ -29,8 +29,8 @@ $ac_data_arr = json_decode($ac_response);
 //print_r($prod_id);
 //die();
 
-print_r($response);
-die();
+//print_r($b_response);
+//die();
 
 
 ?>

@@ -37,6 +37,7 @@
                 getLocation();
             </script>
         <?php } ?>
+   
         <!--QR-->
         <script src="ext/js/printQR.js"></script>
         
