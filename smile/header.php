@@ -67,8 +67,9 @@
                         <li><a href="login.php">Sign In</a></li>
                         <li><a href="register-business.php">Register</a></li>
                         <?php }else{ ?>
+                        <li><a href="dashboard.php">Dashboard</a></li>
                         <li><a href="logout.php">Log Out</a></li>
-                        <li><a href="search.php">Search</a></li>
+                        <!--li><a href="search.php">Search</a></li-->
                         <?php } ?>
                         
                         <li class="dropdown">
