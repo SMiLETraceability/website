@@ -5,7 +5,7 @@ $activity = $_GET['activity'];
 $dataArr  = array();
 
 
-if($activity === "production"){
+if($activity === "PRODUCTION"){
 
 	//Production information:
 	if(isset($_POST['production_description'])){
@@ -63,14 +63,14 @@ if($activity === "production"){
 	die();
 
 
-}else if($activity === "recipe") {
+}else if($activity === "RECIPE") {
 	
-	if(isset($_GET['recipe_description'])){
-		$r_description = $_GET['recipe_description'];	//recipe description
+	if(isset($_POST['recipe_description'])){
+		$r_description = $_POST['recipe_description'];	//recipe description
 	}
 
-	if(isset($_GET['recipe_image'])){
-		$r_image = $_GET['recipe_image'];	//recipe image
+	if(isset($_POST['recipe_image'])){
+		$r_image = $_POST['recipe_image'];	//recipe image
 	}
 
 	if(empty($r_description) == true){
@@ -109,7 +109,7 @@ if($activity === "production"){
 	header("Location: product.php?prodid=".$prod_id."&activity=".$activity);
 	die();
 
-}else if($activity === "ingredient"){
+}else if($activity === "INGREDIENT"){
 
 	//Get all the names of all the ingredients:
 	$ingredientNames 		 			= get_form_data_v('ingredient_name_');

@@ -43,7 +43,7 @@ $data_arr = json_decode($response);
 					<div id="collapseOne" class="panel-collapse collapse in">
 							<div class="panel-body">
 
-							<form class="form-horizontal form-recipe-add" action="activity.php?activity=production&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
+							<form class="form-horizontal form-recipe-add" action="activity.php?activity=PRODUCTION&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
 
 								<div class="alert alert-info col-md-11">
 									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -94,7 +94,7 @@ $data_arr = json_decode($response);
 					<div id="collapseTwo" class="panel-collapse collapse">
 						<div class="panel-body">
 							
-							<form class="form-horizontal form-recipe-add" action="activity.php?activity=recipe&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
+							<form class="form-horizontal form-recipe-add" action="activity.php?activity=RECIPE&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
 
 							<div class="alert alert-info col-md-11">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -135,7 +135,7 @@ $data_arr = json_decode($response);
 					<div id="collapseThree" class="panel-collapse collapse">
 						<div class="panel-body">
 
-							<form class="form-horizontal form-subingredients-add ingredients" action="activity.php?activity=ingredient&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
+							<form class="form-horizontal form-subingredients-add ingredients" action="activity.php?activity=INGREDIENT&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
 
 							<div class="alert alert-info col-md-11">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
