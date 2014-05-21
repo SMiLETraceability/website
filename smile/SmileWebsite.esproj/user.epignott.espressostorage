@@ -106,6 +106,12 @@
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/dashboard.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.WorkspaceTabs.DisclosureCollapsed</key>
