@@ -1,18 +1,18 @@
 <?php include('core/init.core.php');?>
 <?php
 
-	//URL of the REST call:
+//URL of the REST call:
 $url      = APIURL."/product/".$_GET['prodid'];
 
-	//echo $url;
+//echo $url;
 
-	//Headers of the REST call:
+//Headers of the REST call:
 $headers  = array("Content-Type: application/json","ApplicationAuthorization:".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
 
-	//REST response:
+//REST response:
 $response =  rest_get($url,$headers);
 
-	//Decode the JSON object:
+//Decode the JSON object:
 $data_arr = json_decode($response);
 ?>
 
@@ -93,157 +93,164 @@ $data_arr = json_decode($response);
 				?>
 			</ul>
 
-
-
-
 			<div class="panel-group col-lg-10" id="accordion">
-
-				<div class="panel panel-info">
+	
+				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-								Add Product Production Details
-							</a>
-						</h4>
-					</div>
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Add Product Production Details</a>
+						</h4><!--End of .panel-title-->
+					</div><!--End of .panel-heading-->
+					
 					<div id="collapseOne" class="panel-collapse collapse in">
-						<div class="panel-body">
-							<div class="row">
+							<div class="panel-body">
+
+							<form class="form-horizontal form-recipe-add" action="activity.php?activity=production&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
+
+								<div class="alert alert-info col-md-11">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+									<strong>Tip: </strong> The fields of this panel marked with an asterisk (*) are mandatory. All the other fields are optional.
+								</div><!--End of .alert-->
+								<br/>
+
 								<div class="form-group">
-									<label for="Production Description" class="col-sm-3 control-label">Production Details:</label>
+									<label for="production_description" class="col-sm-3 control-label">Production Details*:</label>
 									<div class="col-md-8">
 										<textarea rows="5" cols="5" class="form-control" id="production_description" name="production_description" title="Please enter production details text." value="<?php echo isset($_POST['production_description'])?$_POST['production_description'] :''?>" required></textarea>
 									</div>
 								</div><!--End of .form-group-->
-							</div>
-							<p></p>
-							<div class="row">
+								<br />
 
 								<div class="form-group">
-									<label for="Production Video" class="col-sm-3 control-label">Video URL:</label>
+									<label for="production_video" class="col-sm-3 control-label">Video URL:</label>
 									<div class="col-md-8">
 										<input type="text" class="form-control" id="production_video" name="production_video" placeholder="Please enter a video url (Youtube)" title="Please enter video link." value="<?php echo isset($_POST['production_video'])?$_POST['production_video'] :''?>" required>
 									</div>
 								</div><!--End of .form-group-->
-							</div>
-							<p></p>
+								<br />
 
-							<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/production_help.png" alt="">'>
-								Sample Preview
-							</button>
+								<div class="form-group">
+									<label for="production_picture" class="col-sm-3 control-label">Picture URL:</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control" id="production_picture" name="production_picture" placeholder="Please enter a picture url:" title="Please enter picture link." value="<?php echo isset($_POST['production_picture'])?$_POST['production_picture'] :''?>" required>
+									</div>
+								</div><!--End of .form-group-->
+								<br />
 
-							<button type="button" class="btn btn-primary" id="add-production-btn" onclick="addProduction('<?php echo $_GET['prodid'];?>')">Submit</button>
+								<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/production_help.png" alt="">'>Sample Preview</button>
 
-						</div>
-					</div>
-				</div>
+								<button type="submit" class="btn btn-primary" id="add-production-btn">Submit</button>
 
-				<div class="panel panel-success">
+								</form><!--End of form-->
+							</div><!--End of .panel-body-->
+					</div><!--End of #collapseOne-->
+				</div><!--End of .panel-->
+
+				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-								Add Recipes
-							</a>
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Add Recipes</a>
 						</h4>
-					</div>
+					</div><!--panel-heading-->
+									
 					<div id="collapseTwo" class="panel-collapse collapse">
 						<div class="panel-body">
-							<div class="row">
-								<div class="form-group">
-									<label for="Recipe Description" class="col-sm-3 control-label">Recipe Details:</label>
-									<div class="col-md-8">
-										<textarea type="text" rows="5" class="form-control" id="recipe_description" name="recipe_description" title="Please enter recipe details text." value="<?php echo isset($_POST['recipe_description'])?$_POST['recipe_description'] :''?>" required></textarea>
-									</div>
-								</div><!--End of .form-group-->
-							</div>
-							<p></p>
-							<div class="row">
+							
+							<form class="form-horizontal form-recipe-add" action="activity.php?activity=recipe&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
 
-								<div class="form-group">
-									<label for="Recipe Image" class="col-sm-3 control-label">Image URL:</label>
-									<div class="col-md-8">
-										<input type="text" class="form-control" id="recipe_image" name="recipe_image" placeholder="Please enter an image url" title="Please enter image link." value="<?php echo isset($_POST['recipe_image'])?$_POST['recipe_image'] :''?>" required>
-									</div>
-								</div><!--End of .form-group-->
-							</div>
-							<p></p>
+							<div class="alert alert-info col-md-11">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>Tip: </strong> The fields of this panel marked with an asterisk (*) are mandatory. All the other fields are optional.
+							</div><!--End of .alert-->
 
-							<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/recipe_help.png" alt="">'>
-								Sample Preview
-							</button>
-							<button type="button" class="btn btn-primary" id="add-recipe-btn" onclick="addRecipe('<?php echo $_GET['prodid'];?>')">Submit</button>
+							<div class="form-group">
+								<label for="Recipe Description" class="col-sm-3 control-label">Recipe Details:</label>
+								<div class="col-md-8">
+									<textarea type="text" rows="5" class="form-control" id="recipe_description" name="recipe_description" title="Please enter recipe details text." value="<?php echo isset($_POST['recipe_description'])?$_POST['recipe_description'] :''?>" required></textarea>
+								</div>
+							</div><!--End of .form-group-->
 
-						</div>
-					</div>
-				</div>
+							<div class="form-group">
+								<label for="Recipe Image" class="col-sm-3 control-label">Image URL:</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="recipe_image" name="recipe_image" placeholder="Please enter an image url" title="Please enter image link." value="<?php echo isset($_POST['recipe_image'])?$_POST['recipe_image'] :''?>" required>
+								</div>
+							</div><!--End of .form-group-->
 
-				<div class="panel panel-primary">
+							<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/recipe_help.png" alt="">'>Sample Preview</button>
+											
+							<button type="submit" class="btn btn-primary" id="add-recipe-btn">Submit</button>
+
+							</form><!--End of form-->
+
+						</div><!--End of .panel-body-->
+					</div><!--End of #collapseTwo-->
+				</div><!--End of .panel-->
+
+				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-								Add Sub Ingredients
-							</a>
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Add Sub Ingredients</a>
 						</h4>
-					</div>
+					</div><!--End .panel-heading-->
+									
 					<div id="collapseThree" class="panel-collapse collapse">
 						<div class="panel-body">
-							<div class="row">
-								<div class="form-group">
-									<label for="Ingredient Name" class="col-sm-3 control-label">Ingredient Name:</label>
-									<div class="col-md-8">
-										<input type="text" class="form-control" id="ingredient_name" name="ingredient_name" placeholder="Ingredient Name" title="Please input a ingredient name." value="<?php echo isset($_POST['ingredient_name'])?$_POST['ingredient_name'] :''?>" required>
-									</div>
-								</div><!--End of .form-group-->
-							</div>
-							<p></p>
-							<div class="row">
-								<div class="form-group">
-									<label for="Ingredient Description" class="col-sm-3 control-label">Ingredient Details:</label>
-									<div class="col-md-8">
-										<textarea type="text" rows="5" class="form-control" id="ingredient_description" name="ingredient_description" title="Please enter ingredient details." value="<?php echo isset($_POST['ingredient_description'])?$_POST['ingredient_description'] :''?>" required></textarea>
-									</div>
-								</div><!--End of .form-group-->
-							</div>
-							<p></p>
-							<div class="row">
-								<div class="form-group">
-									<label for="Ingredient Producer" class="col-sm-3 control-label">Ingredient Producer Name:</label>
-									<div class="col-md-8">
-										<input type="text" class="form-control" id="ingredient_producer_name" name="ingredient_producer_name" placeholder="Ingredient Producer Name" title="Please input a ingredient producer name." value="<?php echo isset($_POST['ingredient_producer_name'])?$_POST['ingredient_producer_name'] :''?>" required>
-									</div>
-								</div><!--End of .form-group-->
-							</div>
-							<p></p>
-							<div class="row">
-								<div class="form-group">
-									<label for="Ingredient Producer Location" class="col-sm-2 control-label">Producer Location:</label>
-									<div class="col-md-8 col-md-offset-1">
-										<input type="text" class="form-control" id="ingredient_producer_location" name="ingredient_producer_location" placeholder="Ingredient Producer Location" title="Please input a ingredient producer location." value="<?php echo isset($_POST['ingredient_producer_location'])?$_POST['ingredient_producer_location'] :''?>" required>
-									</div>
-								</div><!--End of .form-group-->
-							</div>
-							<p></p>
-							<div class="row">
-								<div class="form-group">
-									<label for="Ingredient Image" class="col-sm-3 control-label">Image URL:</label>
-									<div class="col-md-8">
-										<input type="text" class="form-control" id="ingredient_image" name="ingredient_image" placeholder="Please enter an image url" title="Please enter image link." value="<?php echo isset($_POST['ingredient_image'])?$_POST['ingredient_image'] :''?>" required>
-									</div>
-								</div><!--End of .form-group-->
-							</div>
-							<p></p>
-							
-							<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/recipe_help.png" alt="">'>
-								Sample Preview
-							</button>	
-							<button type="button" class="btn btn-primary" id="add-ingredient-btn" onclick="addIngredient('<?php echo $_GET['prodid'];?>')">Submit</button>
 
-						</div>
-					</div>
-				</div>
-			</div>
+							<form class="form-horizontal form-subingredients-add" action="activity.php?activity=ingredient&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
+
+							<div class="alert alert-info col-md-11">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>Tip: </strong> The fields of this panel marked with an asterisk (*) are mandatory. All the other fields are optional.
+							</div><!--End of .alert-->
+							
+							<div class="form-group">
+								<label for="Ingredient Name" class="col-sm-3 control-label">Ingredient Name:</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="ingredient_name" name="ingredient_name" placeholder="Ingredient Name" title="Please input a ingredient name." value="<?php echo isset($_POST['ingredient_name'])?$_POST['ingredient_name'] :''?>" required>
+								</div>
+							</div><!--End of .form-group-->
+
+							<div class="form-group">
+								<label for="Ingredient Description" class="col-sm-3 control-label">Ingredient Details:</label>
+								<div class="col-md-8">
+									<textarea type="text" rows="5" class="form-control" id="ingredient_description" name="ingredient_description" title="Please enter ingredient details." value="<?php echo isset($_POST['ingredient_description'])?$_POST['ingredient_description'] :''?>" required></textarea>
+								</div>
+							</div><!--End of .form-group-->
+
+							<div class="form-group">
+								<label for="ingredient_producer_name" class="col-sm-3 control-label">Producer Name:</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="ingredient_producer_name" name="ingredient_producer_name" placeholder="Ingredient Producer Name" title="Please input a ingredient producer name." value="<?php echo isset($_POST['ingredient_producer_name'])?$_POST['ingredient_producer_name'] :''?>" required>
+								</div>
+							</div><!--End of .form-group-->
+
+							<div class="form-group">
+								<label for="ingredient_producer_location" class="col-sm-3 control-label">Producer Location:</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="ingredient_producer_location" name="ingredient_producer_location" placeholder="Ingredient Producer Location" title="Please input a ingredient producer location." value="<?php echo isset($_POST['ingredient_producer_location'])?$_POST['ingredient_producer_location'] :''?>" required>
+								</div>
+							</div><!--End of .form-group-->
+
+							<div class="form-group">
+								<label for="Ingredient Image" class="col-sm-3 control-label">Image URL:</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="ingredient_image" name="ingredient_image" placeholder="Please enter an image url" title="Please enter image link." value="<?php echo isset($_POST['ingredient_image'])?$_POST['ingredient_image'] :''?>" required>
+								</div>
+							</div><!--End of .form-group-->
+
+							<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/recipe_help.png" alt="">'>Sample Preview</button>	
+
+							<button type="submit" class="btn btn-primary" id="add-ingredient-btn">Submit</button>
+
+							</form><!--End of form-->
+						</div><!--End of .panel-body-->
+					</div><!--End of #collapseThree-->
+				</div><!--End of .panel-->
+			</div><!--End of #accordion-->
+
 		</div><!--End of .main-->
 	</div><!--End of .row-->
 </div><!--Container Ends here-->
 
-<?php include('footer.php'); ?>
+	<?php include('footer.php'); ?>
