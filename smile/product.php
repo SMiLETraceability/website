@@ -4,8 +4,6 @@
 //URL of the REST call:
 $url      = APIURL."/product/".$_GET['prodid'];
 
-//echo $url;
-
 //Headers of the REST call:
 $headers  = array("Content-Type: application/json","ApplicationAuthorization:".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
 
@@ -16,17 +14,13 @@ $response =  rest_get($url,$headers);
 $data_arr = json_decode($response);
 
 
+
 //Get activities:
-$urlActivities		   = APIURL."/activity/product/".$_GET['prodid'];
-
-$responseActivities	   = rest_get($urlActivities,$headers);
-
-$dataActivitiesArray   = json_decode($responseActivities);
-
-print_r($dataActivitiesArray);
-echo "<br /><br /><br />";
-
+$ac_url = APIURL."/activity/product/".$_GET['prodid'];
+$ac_response = rest_get($ac_url, $headers);
+$ac_data_arr = json_decode($ac_response);
 ?>
+<?php include('mobile-header.php'); ?>
 
 <?php include('header.php'); ?>
 <div class="container-fluid">
@@ -39,55 +33,42 @@ echo "<br /><br /><br />";
 				<a href="product-update.php?prodid=<?php echo $_GET['prodid'];?>" class="btn btn-primary active" role="button" style="float:right;margin-left:5px; margin-right:5px;">Update Product</a>&nbsp;&nbsp;
 				<a href="product-provenance.php?prodid=<?php echo $_GET['prodid'];?>" class="btn btn-primary active" role="button" style="float:right;">Add Provenance Information</a>&nbsp;&nbsp;
 			</h1>
+		</div>
 
-			<h3>Provenance:</h3>
-			<div class="table-responsive" style="clear:both;">
-	            	<table class="table table-striped footable" data-page-size="10">
-	              		<thead>
-	                		<tr>
-	                			<th>Number:</th>
-	                  			<th>Activity Type:</th>
-	                  			<th colspan="5">Information:</th>
-	                  			<th colspan="2">Options:</th>
-	                		</tr>
-	              		</thead>
-	              		<tbody>
-	        <?php $k =0; ?>
-			<?php for($index=0; $index<sizeof($dataActivitiesArray->{'activities'}); $index++){
-				$k++;
-				echo "<tr>";
-				echo "<td>".$k."</td>";
-				echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'type'}."</td>";
-				if($dataActivitiesArray->{'activities'}[$index]->{'type'} === "PRODUCTION"){
-					echo "<td colspan=\"3\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'description'}."</td>";
-					echo "<td colspan=\"1\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'video'}."</td>";
-					echo "<td colspan=\"1\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'image'}."</td>";
-				}else if($dataActivitiesArray->{'activities'}[$index]->{'type'} === "RECIPE"){
-					echo "<td colspan=\"3\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'description'}."</td>";
-					echo "<td colspan=\"2\">".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'image'}."</td>";
-				}if($dataActivitiesArray->{'activities'}[$index]->{'type'} === "INGREDIENTS"){
-					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'name'}."</td>";
-					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'description'}."</td>";
-					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'producer'}."</td>";
-					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'location'}."</td>";
-					echo "<td>".$dataActivitiesArray->{'activities'}[$index]->{'context'}->{'image'}."</td>";
-				}
+		<div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2">
+				<div class="thumbnail"> 
+					<?php 
+					echo '<img src="'.$data_arr->{'photos'}[0].'" alt="">';
+					?> 
+				</div>
+		</div>
 
-			}?>
-						</tbody>
-					</table>
+		<div class="col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+				
+				<?php include('cards/PRODUCT-INFORMATION.php'); ?>
+
+				<?php include('cards/DESCRIPTION.php'); ?>
+				
+				<?php foreach($ac_data_arr->{'activities'} as $item) { 
+                $card_name = 'cards/' . $item->{'type'} . '.php'; 
+				
+				if (file_exists($card_name)) {
+				 include $card_name;  
+				 }
+				?>
+					 	
+				<?php } ?>
+					
+			
 			</div>
+		</div>
+</div>
 
-			<h3>Description: </h3>
+			
+
+<!-- 			<h3>Description: </h3>
 			<p><?php echo $data_arr->{'description'};?></p>
 
-			<h3>Photo:</h3>
-			<?php
-			$photos = (array) $data_arr->{'photos'}; 
-			foreach ($photos as $key => $value) {
-				echo "<img src=\"".$value."\" alt=\"\" width=\"300\" height=\"300\">";
-			}
-			?>
 
 			<h3>Additional Information:</h3>
 			<ul>
@@ -148,6 +129,6 @@ echo "<br /><br /><br />";
 
 		</div><!--End of .main-->
 	</div><!--End of .row-->
-</div><!--Container Ends here-->
+</div><!--Container Ends here--> -->
 
 <?php include('footer.php'); ?>
