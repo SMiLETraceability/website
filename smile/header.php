@@ -46,7 +46,7 @@
         ?>
     >
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-navbar">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -67,8 +67,9 @@
                         <li><a href="login.php">Sign In</a></li>
                         <li><a href="register-business.php">Register</a></li>
                         <?php }else{ ?>
+                        <li><a href="dashboard.php">Dashboard</a></li>
                         <li><a href="logout.php">Log Out</a></li>
-                        <li><a href="search.php">Search</a></li>
+                        <!--li><a href="search.php">Search</a></li-->
                         <?php } ?>
                         
                         <li class="dropdown">
