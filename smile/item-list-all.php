@@ -31,7 +31,9 @@
 	                			<th>Number:</th>
 	                  			<th>Name:</th>
 	                  			<th>Description:</th>
-	                  			<th colspan="4">Options:</th>
+	                  			<th colspan="2">Options:</th>
+	                  			<th><a href="#" class="btn btn-primary btn-sm active" onclick="printItems()"role="button">Print QR Code</a></th>
+	                  			<th></th>
 	                		</tr>
 	              		</thead>
 	              		<tbody>
@@ -44,7 +46,12 @@
 								echo "<td>".$data_arr->{'items'}[$index]->{'description'}."</td>";
 								echo "<td><a href=\"item.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-default btn-sm active\" role=\"button\">View Item</a></td>";
 								echo "<td><a href=\"item-update.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-default btn-sm active\" role=\"button\">Update Item</a></td>";
-								echo "<td><a href=\"#\" onclick=\"printItem(".$data_arr->{'items'}[$index]->{'id'}.",'".$data_arr->{'items'}[$index]->{'name'}."');\" class=\"btn btn-primary btn-sm active\" role=\"button\">Print QR Code</a></td>";
+								
+								echo "<td> <input type=\"checkbox\" class=\"qr-item\" name=\"". $data_arr->{'items'}[$index]->{'name'}."\" value=\"" . $data_arr->{'items'}[$index]->{'id'} . "\"></td>";
+								//echo "<td><a href=\"PrintQR.php?itmid=" . $data_arr->{'items'}[$index]->{'id'} . "&itmname=" . $data_arr->{'items'}[$index]->{'name'}. "\" class=\"btn btn-primary btn-sm active\" role=\"button\">Print QR Code</a></td>";
+								
+								//echo "<td><a href=\"#\" onclick=\"printItem(".$data_arr->{'items'}[$index]->{'id'}.",'".$data_arr->{'items'}[$index]->{'name'}."');\" class=\"btn btn-primary btn-sm active\" role=\"button\">Print QR Code</a></td>";
+								
 								echo "<td><a href=\"item-delete.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-danger btn-sm active\" role=\"button\">Delete Item</a></td>";
 								echo "</tr>";
 							}
