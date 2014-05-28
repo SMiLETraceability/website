@@ -53,6 +53,12 @@
        <script src="ext/js/footable.paginate.js" type="text/javascript"></script>
         
         
+       <script src="js/vendor/jquery.ui.widget.js"></script>
+       <script src="js/jquery.iframe-transport.js"></script>
+       <script src="js/jquery.fileupload.js"></script>
+        
+       <script src="ext/js/uploads.js"></script>
+        
         <script type="text/javascript">
         	$(function () {
         		$('.footable').footable();

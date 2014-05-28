@@ -13,7 +13,7 @@
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{213, 878}</string>
+		<string>{63, 809}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -22,6 +22,8 @@
 		<key>ExpandedURLs</key>
 		<array>
 			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards</string>
+			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/css</string>
+			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/js</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -116,7 +118,25 @@
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/RECIPE%202.php</string>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/upload.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/product-add.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/js/uploads.js</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/product-update.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

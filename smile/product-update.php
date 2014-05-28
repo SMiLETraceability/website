@@ -3,6 +3,7 @@
 
 	$product_id = $_GET['prodid'];
 	$userobj = getProduct($product_id);	
+	$errors = '';
 
 	//Check if the variables are set:
 	if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -19,11 +20,11 @@
 				'brand' 	  => htmlentities($_POST['brand']),
 				'photos'   	  => $photos,
 				'url' 		  => htmlentities($_POST['Url']),
-				'price'		  => htmlentities($_POST['price'])
-				//'identifiers' => $identifiers,
-				//'properties'  => $properties
-				//'categories'  => $categories,
-				//'tags'		  => $tags
+				'price'		  => htmlentities($_POST['price']),
+				'identifiers' => $identifiers,
+				'properties'  => $properties,
+				'categories'  => $categories,
+				'tags'		  => $tags
 		);
 
 		//add the optional fields if filled by the user
@@ -123,9 +124,17 @@ function getProduct($product_id){
 
 				  	<div class="form-group">
 				    	<label for="photo_url" class="col-sm-2 control-label">Photo Url:</label>
-				    	<div class="col-sm-9">
-				      		<input type="text" class="form-control" id="Photo_url" name="photo_url" placeholder="Photo Url" title="Please input a photo url." value="<?php echo isset($_POST['photo_url'])?$_POST['photo_url'] :$userobj->{'photos'}[0]?>" required>
+				    	<div class="col-sm-6">
+				      		<input type="text" class="form-control" id="photo_url" name="photo_url" placeholder="Photo Url" title="Please input a photo url." value="<?php echo isset($_POST['photo_url'])?$_POST['photo_url'] :$userobj->{'photos'}[0]?>" required>
 				    	</div>
+			 
+		  	    	    <div class="col-sm-2">		
+				    	  		<span class="btn btn-primary btn-file">  Upload Photo <input id="photo_upload" type="file" name="files[]" data-url="server/php/" multiple></span>
+				    	  </div>	
+				    	
+				    	
+				    	
+				    	
 				  	</div><!--End of .form-group-->
 
 				  	<div class="form-group">

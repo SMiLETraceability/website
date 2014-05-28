@@ -150,9 +150,14 @@
 
 				  	<div class="form-group">
 				    	<label for="photo_url" class="col-sm-2 control-label">Photo Url:</label>
-				    	<div class="col-sm-9">
-				      		<input type="text" class="form-control" id="photo_url" name="photo_url" placeholder="Photo Url" title="Please input a photo url." value="<?php echo isset($_POST['photo_url'])?$_POST['photo_url'] :''?>" required>
-				    	</div>
+				    	<div class="col-sm-6">
+				    	   
+					      		<input type="text" class="form-control" id="photo_url" name="photo_url" placeholder="Photo Url" title="Please input a photo url." value="<?php echo isset($_POST['photo_url'])?$_POST['photo_url'] :''?>" required>
+					     </div> 
+					     <div class="col-sm-2">		
+					      		<span class="btn btn-primary btn-file">  Upload Photo <input id="photo_upload" type="file" name="files[]" data-url="server/php/" multiple></span>
+					      </div>		
+			
 				  	</div><!--End of .form-group-->
 
 				  	<div class="form-group">
