@@ -27,7 +27,7 @@
         	
 	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	          	<h1 class="page-header">Your Dashboard</h1>
-	          
+	            <p> bla bla bla bla </p>
 	            <h3>Quick guide</h3>
 	            <p><strong>Step1: </strong> Add a product into your catalogue</p>
 	            <a href ="product-add.php" title="Add Business" class="btn btn-primary btn-lg active" role="button">Add Product</a>
