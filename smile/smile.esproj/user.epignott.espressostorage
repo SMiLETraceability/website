@@ -13,7 +13,7 @@
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{670, 1402}</string>
+		<string>{868, 1125}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -21,7 +21,7 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
-			<string>file://localhost/Users/epignott/smile/website/smile</string>
+			<string>file://localhost/Users/epignott/smile/website/smile/cards</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -32,31 +32,31 @@
 		<array>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/product-list-all.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/product.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/ext/js/delete.js</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/cards/NEW_RECIPE.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/item-list-all.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/cards/NEW_PRODUCTION.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/dashboard-sidebar.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/cards/NEW_INGREDIENT.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/header.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/ext/js/addActivities.js</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
@@ -68,19 +68,25 @@
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/product-add.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/cards/RECIPE.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/item.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/product-provenance.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/item-add.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/activity.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/epignott/smile/website/smile/cards/INGREDIENT.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

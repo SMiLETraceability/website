@@ -111,29 +111,31 @@ if($activity === "PRODUCTION"){
 
 }else if($activity === "INGREDIENT"){
 
-	//Get all the names of all the ingredients:
-	$ingredientNames 		 			= get_form_data_v('ingredient_name_');
+	
+	$ingredientName 		 			= $_POST['ingredient_name'];
 	//Get all the descriptions of all the ingredients:
-	$ingredientDescriptions  			= get_form_data_v('ingredient_description_');
+	$ingredientDescription  			= $_POST['ingredient_description'];
 	//Get all the images of all the ingredients:
-	$ingredientImages 		 			= get_form_data_v('ingredient_image_');
+	$ingredientImage 		 			= $_POST['ingredient_image'];
 	//Get all the producer names of all the ingredients:
-	$ingredientProducerNames 		    = get_form_data_v('ingredient_producer_name_');
+	$ingredientProducerName 		    = $_POST['ingredient_producer_name'];
 	//Get all the producer locations of all the ingredients:
-	$ingredientProducerLocations        = get_form_data_v('ingredient_producer_location_');
+	$ingredientProducerLocation        = $_POST['ingredient_producer_location'];
 
-	//All arrays have the same size:
-	for ($index=0; $index<sizeof($ingredientNames); $index++){
+
+
+
+
 		$dataArr = array(
 					'type'=>$activity,
 					'entity'=>'product',
 					'recordId'=>$prod_id,
 					'context'=> array(
-						'name' 		  => $ingredientNames[$index],
-						'description' => $ingredientDescriptions[$index], 
-						'image' 	  => $ingredientImages[$index],
-						'producer'    => $ingredientProducerNames[$index],
-						'location'    => $ingredientProducerLocations[$index]
+						'name' 		  => $ingredientName,
+						'description' => $ingredientDescription, 
+						'image' 	  => $ingredientImage,
+						'producer'    => $ingredientProducerName,
+						'location'    => $ingredientProducerLocation
 						)
 					);
 		//URL of the REST call:
@@ -153,7 +155,7 @@ if($activity === "PRODUCTION"){
 		
 		//Empty array, to repeat the process:
 		$dataArr = array();
-	}
+	
 
 	header("Location: product.php?prodid=".$prod_id."&activity=".$activity);
 	die();

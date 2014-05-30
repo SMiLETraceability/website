@@ -15,6 +15,9 @@
 
 	//Get the number of items in the JSON object:
 	$size = sizeof($data_arr->{'items'});
+	
+	//print_r($data_arr);
+    //die();
 ?>
 <?php include('header.php'); ?>
 
@@ -62,18 +65,23 @@
 	                			<th>Number:</th>
 	                  			<th>Name:</th>
 	                  			<th>Description:</th>
+	                  			<th>Product</th>
 	                  			<th colspan="3">Options:</th>
 	                  			<th><a href="#" class="btn btn-primary btn-sm active" onclick="printItems()"role="button">Print QR Code</a></th>
 		                		</tr>
 	              		</thead>
 	              		<tbody>
 	              			<?php
-	              			for($index = 0, $k=1; $index<$size; $index++, $k++){
+	              			if ($size == 0) { echo "<tr > <td colspan=\"7\">No items in the catalogue</td></tr>"; }
+	              			
+	              			for($index = $size-1, $k=1; $index>=0; $index--, $k++){
 								//print_r($data_arr->{'items'}[$index]);
 								echo "<tr>";
 								echo "<td>".$k."</td>";
 								echo "<td><a href=\"item.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\">".$data_arr->{'items'}[$index]->{'name'}."</a></td>";
 								echo "<td>".$data_arr->{'items'}[$index]->{'description'}."</td>";
+								echo "<td>".$data_arr->{'items'}[$index]->{'product'}."</td>";
+								
 								echo "<td><a href=\"item.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-default btn-sm active\" role=\"button\">View Item</a></td>";
 								echo "<td><a href=\"item-update.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-default btn-sm active\" role=\"button\">Update Item</a></td>";
 								
@@ -92,7 +100,7 @@
 	              		</tbody>
 	              		<tfoot>
 	              				<tr>
-	              					<td colspan="7">
+	              					<td colspan="8">
 	              						<div class="pagination pagination-centered hide-if-no-paging"></div>
 	              					</td>
 	              				</tr>

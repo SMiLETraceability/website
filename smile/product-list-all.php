@@ -72,11 +72,17 @@ $size = sizeof($data_arr->{'products'});
 					</thead>
 					<tbody>
 						<?php
+						if ($size == 0) { echo "<tr > <td colspan=\"7\">No items in the catalogue</td></tr>"; }
+						
 						for($index = 0, $k=1; $index<$size; $index++, $k++){
 							echo "<tr>";
 							echo "<td>".$k."</td>";
+						
+							
 							echo "<td><a href=\"product.php?prodid=".$data_arr->{'products'}[$index]->{'id'}."\">".$data_arr->{'products'}[$index]->{'fn'}."</a></td>";
+												
 							echo "<td>".$data_arr->{'products'}[$index]->{'description'}."</td>";
+												
 							echo "<td><a href=\"product.php?prodid=".$data_arr->{'products'}[$index]->{'id'}."\" class=\"btn btn-default btn-sm active\" role=\"button\">View product</a></td>";
 							echo "<td><a href=\"product-update.php?prodid=".$data_arr->{'products'}[$index]->{'id'}."\" class=\"btn btn-default btn-sm active\" role=\"button\">Update product</a></td>";
 								//echo "<td><a href=\"#\" onclick=\"printImage(".$data_arr->{'products'}[$index]->{'id'}.",'".$data_arr->{'products'}[$index]->{'fn'}."');\" class=\"btn btn-primary btn-sm active\" role=\"button\">Print QR Code</a></td>";

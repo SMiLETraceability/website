@@ -16,6 +16,9 @@
                 <div class="panel-body">
                     <h4>What did we use?</h4>
                     <p><?php echo $item->{'context'}->{'description'}?> </p>
+                    <p><strong>Producer: </strong><?php echo $item->{'context'}->{'producer'}?> </p>
+                    <p><strong>Location: </strong><?php echo $item->{'context'}->{'location'}?> </p>
+                    
                 </div>
                 <div class="panel-footer text-center">
                     <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>

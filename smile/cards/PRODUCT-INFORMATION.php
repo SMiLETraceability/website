@@ -1,11 +1,38 @@
 <div class="panel panel-default">
-						<div class="panel-heading"><h4>Product Information</h4></div>
+    <div class="panel-heading">
+    <?php if ($page === "item") { ?>
+       <h4>Product Information  <a href="product-update.php?prodid=<?php echo $data_arr->{'product'}->{'id'}; ?>" class="btn btn-warning btn-sm pull-right">Update product</a></h4>
+    <?php } else { ?>   
+    <h4>Product Information</h4> 
+    <?php } ?> 
+    </div>
 	<div class="panel-body">
-		<h4><?php echo $data_arr->{'fn'}; ?></h4>
+		<?php if ($page === "product") { ?>
+		   <h4><?php echo $data_arr->{'fn'}; ?></h4>
+		<?php } else { ?>   
+		   <h4><?php echo $data_arr->{'product'}->{'fn'}; ?></h4>
+		<?php } ?>
+		
 		<div id="bdesc-txt">
-		<p><?php echo $data_arr->{'description'}; ?></p>
-		<p><strong>Website: </strong><?php echo $data_arr->{'url'}; ?></p> 
-		<p><strong>Price: </strong>&pound; <?php echo $data_arr->{'price'}; ?></p>
+		<?php if ($page === "product") { ?>
+		   <p><?php echo $data_arr->{'description'}; ?></p>
+		<?php } else { ?>   
+		   <p><?php echo $data_arr->{'product'}->{'description'}; ?></p>
+		<?php } ?>
+		
+		
+		<?php if ($page === "product") { ?>
+		   <p><strong>Website: </strong><?php echo $data_arr->{'url'}; ?></p>
+		<?php } else { ?>   
+		   <p><strong>Website: </strong><?php echo $data_arr->{'product'}->{'url'}; ?></p>
+		<?php } ?>
+				
+		<?php if ($page === "product") { ?>
+		   <p><strong>Price: </strong>&pound; <?php echo $data_arr->{'price'}; ?></p>
+		<?php } else { ?>   
+		   <p><strong>Price: </strong>&pound; <?php echo $data_arr->{'product'}->{'price'}; ?></p>
+		<?php } ?>		
+		
 		</div>
 		
 	</div>

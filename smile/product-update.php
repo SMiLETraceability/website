@@ -20,22 +20,22 @@
 				'brand' 	  => htmlentities($_POST['brand']),
 				'photos'   	  => $photos,
 				'url' 		  => htmlentities($_POST['Url']),
-				'price'		  => htmlentities($_POST['price']),
-				'identifiers' => $identifiers,
-				'properties'  => $properties,
-				'categories'  => $categories,
-				'tags'		  => $tags
+				'price'		  => htmlentities($_POST['price'])
+				//'identifiers' => $identifiers,
+				//'properties'  => $properties,
+				//'categories'  => $categories,
+				//'tags'		  => $tags
 		);
 
 		//add the optional fields if filled by the user
-		if($properties)
-			$dataArray['properties'] = $properties;
-		if($identifiers)
-			$dataArray['identifiers'] = $identifiers;
-		if($categories)
-			$dataArray['categories'] = $categories;
-		if($tags)
-			$dataArray['tags'] = $tags;
+		//if($properties)
+		//	$dataArray['properties'] = $properties;
+		//if($identifiers)
+		//	$dataArray['identifiers'] = $identifiers;
+		//if($categories)
+		//	$dataArray['categories'] = $categories;
+		//if($tags)
+		//	$dataArray['tags'] = $tags;
 
 		//API URL:
 		$url 	 = APIURL."/product/".$product_id;
@@ -52,15 +52,21 @@
 
 		$userobj = json_decode($response);
 		//Testing purposes:
-		print_r($userobj);
+		//print_r($userobj);
 
-		$status = $userobj->{'statusCode'};
+        if (isset($userobj->{'statusCode'})) {
 
-        //Check if the product creation was successful:
-        if($status && $status!=200){
-        	$errors[] = $userobj->{'errors'}[0];
-            $errors[] = $userobj->{'moreInfo'};
+				$status = $userobj->{'statusCode'};
+		
+		        //Check if the product creation was successful:
+		        if($status && $status!=200){
+		        	$errors[] = $userobj->{'errors'}[0];
+		            $errors[] = $userobj->{'moreInfo'};
+		        }
+        
         }
+        
+        header("Location: product.php?prodid=$product_id");
 
 	}
 
@@ -151,11 +157,15 @@ function getProduct($product_id){
 				    	</div>
 				  	</div><!--End of .form-group-->
 
+<!--
+
 				  	<h3 class="col-sm-2">Tags:</h3><button type="button" class="btn btn-primary add-tags" style="margin-top: 15px;margin-left: 5px;">Add Tags</button>
 				  	<br/><br/><br/>
 
 				  	<div class="tags">
-				  	</div><!--End of .tags-->
+				  	</div>
+				  	
+-->				  	
 
 
 

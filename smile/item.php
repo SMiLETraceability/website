@@ -13,6 +13,9 @@ $response =  rest_get($url,$headers);
 //Decode the JSON object:
 $data_arr = json_decode($response);
 
+//print_r($data_arr);
+
+//die();
 
 
 //Get activities:

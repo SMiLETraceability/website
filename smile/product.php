@@ -23,32 +23,80 @@ $ac_data_arr = json_decode($ac_response);
 <?php include('mobile-header.php'); ?>
 
 <?php include('header.php'); ?>
+
+
+
+<!-- delete modal window -->
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+            
+                <div class="modal-body">
+                    <p>You are about to delete a product from your catalogue.</p>
+                    <p>Do you want to proceed?</p>
+                    <p class="debug-url"></p>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" class="btn btn-danger danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- end of delete modal window -->
+
+
+
+<?php include('cards/NEW_INGREDIENT.php'); ?>
+<?php include('cards/NEW_PRODUCTION.php'); ?>
+<?php include('cards/NEW_RECIPE.php'); ?>
+
+
+
 <div class="container-fluid">
 	<div class="row">
 		<?php include('dashboard-sidebar.php');?>
 
-		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-			<h1 class="page-header"><?php echo $data_arr->{'fn'};?>&nbsp;&nbsp;
-				<a href="product-delete.php?prodid=<?php echo $_GET['prodid'];?>" class="btn btn-primary active" role="button" style="float:right;">Remove Product</a>&nbsp;&nbsp;
-				<a href="product-update.php?prodid=<?php echo $_GET['prodid'];?>" class="btn btn-primary active" role="button" style="float:right;margin-left:5px; margin-right:5px;">Update Product</a>&nbsp;&nbsp;
-				<a href="product-provenance.php?prodid=<?php echo $_GET['prodid'];?>" class="btn btn-primary active" role="button" style="float:right;">Add Provenance Information</a>&nbsp;&nbsp;
-			</h1>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+				<h1 class="page-header"><?php echo $data_arr->{'fn'};?>&nbsp;&nbsp;
+				<a href="#" data-label="<?php echo $data_arr->{'fn'};?>" data-href="product-delete.php?prodid=<?php echo $_GET['prodid'];?>" class="btn btn-danger active" role="button" style="float:right;" data-toggle="modal" data-target="#confirm-delete">Remove Product</a>&nbsp;&nbsp;
+				<a href="product-update.php?prodid=<?php echo $_GET['prodid'];?>" class="btn btn-warning active" role="button" style="float:right;margin-left:5px; margin-right:5px;">Update Product</a>&nbsp;&nbsp;
+				<div class="btn-group"  style="float:right;margin-left:5px; margin-right:5px;">
+						  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+						    Add a new card <span class="caret"></span>
+						  </button>
+						<ul class="dropdown-menu" role="menu">
+						    <li><a href="#" data-toggle="modal" data-target="#new-recipe">How to use this Product?</a></li>
+						    <li><a href="#" data-toggle="modal" data-target="#new-production">How was it made?</a></li>
+						    <li><a href="#" data-toggle="modal" data-target="#new-ingredient">What did we use?</a></li>
+						    
+						 </ul>
+				</div>
 		</div>
-
-		<div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2">
+		
+		<div class="col-sm-5 col-sm-offset-2 col-md-5 col-md-offset-2">
 				<div class="thumbnail"> 
 					<?php 
 					echo '<img src="'.$data_arr->{'photos'}[0].'" alt="">';
 					?> 
 				</div>
-		</div>
-
-		<div class="col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
 				
 				<?php include('cards/PRODUCT-INFORMATION.php'); ?>
-
-				<?php include('cards/DESCRIPTION.php'); ?>
 				
+				<?php include('cards/DESCRIPTION.php'); ?>
+		</div>
+
+		<div class="col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0">
+				
+									
 				<?php foreach($ac_data_arr->{'activities'} as $item) { 
                 $card_name = 'cards/' . $item->{'type'} . '.php'; 
 				
@@ -58,6 +106,7 @@ $ac_data_arr = json_decode($ac_response);
 				?>
 					 	
 				<?php } ?>
+				
 					
 			
 			</div>
