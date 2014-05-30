@@ -174,29 +174,33 @@
 				    	</div>
 				  	</div><!--End of .form-group-->
 
+
+
+<!--
 				  	<h3 class="col-sm-2">Identifiers:</h3><button type="button" class="btn btn-primary add-identifiers" style="margin-top: 15px;margin-left: 5px;">Add Identifiers</button>
 				  	<br/><br/><br/>
 
 				  	<div class="identifiers">
-				  	</div><!--End of .identifiers-->
+				  	</div>
 
 				  	<h3 class="col-sm-2">Properties:</h3><button type="button" class="btn btn-primary add-properties" style="margin-top: 15px;margin-left: 5px;">Add Properties</button>
 				  	<br/><br/><br/>
 
 				  	<div class="properties">
-				  	</div><!--End of .properties-->
+				  	</div>
 
 				  	<h3 class="col-sm-2">Categories:</h3><button type="button" class="btn btn-primary add-categories" style="margin-top: 15px;margin-left: 5px;">Add Categories</button>
 				  	<br/><br/><br/>
 
 				  	<div class="categories">
-				  	</div><!--End of .categories-->
+				  	</div><
 
 				  	<h3 class="col-sm-2">Tags:</h3><button type="button" class="btn btn-primary add-tags" style="margin-top: 15px;margin-left: 5px;">Add Tags</button>
 				  	<br/><br/><br/>
 
 				  	<div class="tags">
-				  	</div><!--End of .tags-->
+				  	</div>
+				  	-->
 
 				  	<div class="form-group">
 				    	<div class="col-sm-offset-2 col-sm-10">

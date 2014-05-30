@@ -15,6 +15,8 @@
 	//Test the rest call:
 	print_r($response);
 
+	die();
+	
 	//Verify if the delete code is ok then redirect:
 	header("Location: product-list-all.php");
 	die();

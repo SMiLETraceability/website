@@ -17,6 +17,37 @@
 	$size = sizeof($data_arr->{'items'});
 ?>
 <?php include('header.php'); ?>
+
+
+<!-- delete modal window -->
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+            
+                <div class="modal-body">
+                    <p>You are about to delete an item from your catalogue.</p>
+                    <p>Do you want to proceed?</p>
+                    <p class="debug-url"></p>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" class="btn btn-danger danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- end of delete modal window -->
+
+
+
 <div class="container-fluid">
       	<div class="row">
         	<?php include('dashboard-sidebar.php');?>
@@ -31,10 +62,9 @@
 	                			<th>Number:</th>
 	                  			<th>Name:</th>
 	                  			<th>Description:</th>
-	                  			<th colspan="2">Options:</th>
+	                  			<th colspan="3">Options:</th>
 	                  			<th><a href="#" class="btn btn-primary btn-sm active" onclick="printItems()"role="button">Print QR Code</a></th>
-	                  			<th></th>
-	                		</tr>
+		                		</tr>
 	              		</thead>
 	              		<tbody>
 	              			<?php
@@ -47,12 +77,15 @@
 								echo "<td><a href=\"item.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-default btn-sm active\" role=\"button\">View Item</a></td>";
 								echo "<td><a href=\"item-update.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-default btn-sm active\" role=\"button\">Update Item</a></td>";
 								
-								echo "<td> <input type=\"checkbox\" class=\"qr-item\" name=\"". $data_arr->{'items'}[$index]->{'name'}."\" value=\"" . $data_arr->{'items'}[$index]->{'id'} . "\"></td>";
-								//echo "<td><a href=\"PrintQR.php?itmid=" . $data_arr->{'items'}[$index]->{'id'} . "&itmname=" . $data_arr->{'items'}[$index]->{'name'}. "\" class=\"btn btn-primary btn-sm active\" role=\"button\">Print QR Code</a></td>";
+																//echo "<td><a href=\"PrintQR.php?itmid=" . $data_arr->{'items'}[$index]->{'id'} . "&itmname=" . $data_arr->{'items'}[$index]->{'name'}. "\" class=\"btn btn-primary btn-sm active\" role=\"button\">Print QR Code</a></td>";
 								
 								//echo "<td><a href=\"#\" onclick=\"printItem(".$data_arr->{'items'}[$index]->{'id'}.",'".$data_arr->{'items'}[$index]->{'name'}."');\" class=\"btn btn-primary btn-sm active\" role=\"button\">Print QR Code</a></td>";
 								
-								echo "<td><a href=\"item-delete.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-danger btn-sm active\" role=\"button\">Delete Item</a></td>";
+								echo "<td><a href=\"#\" data-label=\"".$data_arr->{'items'}[$index]->{'name'}."\" data-href=\"item-delete.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-danger btn-sm active\" role=\"button\" data-toggle=\"modal\" data-target=\"#confirm-delete\"  >Delete Item</a></td>";
+								
+								
+								echo "<td> <input type=\"checkbox\" class=\"qr-item\" name=\"". $data_arr->{'items'}[$index]->{'name'}."\" value=\"" . $data_arr->{'items'}[$index]->{'id'} . "\"></td>";
+								
 								echo "</tr>";
 							}
 	              			?>

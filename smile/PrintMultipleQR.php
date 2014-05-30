@@ -90,7 +90,7 @@ $style = array(
 for ($i = 0; $i < $size ; $i++) {
  
  $pdf->AddPage('L', $resolution);
- $pdf->MultiCell(0,0, '<strong>ID:</strong> ' . $item_ids[$i] . '<br /> <br />' . $item_names[$i] , 0, 'L', 0, 0, '30mm', '3mm', true, 0, true);
+ $pdf->MultiCell(0,0, 'TrackMyFood! <br/><strong>ID:</strong> ' . $item_ids[$i] . '<br /> <br />' . $item_names[$i] , 0, 'L', 0, 0, '30mm', '3mm', true, 0, true);
  $pdf->write2DBarcode('http://smile.abdn.ac.uk:8080/smile-server/api-1.1/item/' . $item_ids[$i], 'QRCODE,M', 3, 3, 10, 10, $style, 'N');
 
 }

@@ -53,7 +53,7 @@ $resolution= array(62, 29);
 $pdf->AddPage('L', $resolution);
 
 
-$pdf->MultiCell(0,0, '<strong>ID:</strong> ' . $item_id . '<br /> <br />' . $item_name , 0, 'L', 0, 0, '30mm', '3mm', true, 0, true);
+$pdf->MultiCell(0,0, 'TrackMyFood! <br/><strong>ID:</strong> ' . $item_id . '<br /> <br />' . $item_name , 0, 'L', 0, 0, '30mm', '3mm', true, 0, true);
 
 // set style for barcode
 $style = array(

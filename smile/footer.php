@@ -58,6 +58,8 @@
        <script src="js/jquery.fileupload.js"></script>
         
        <script src="ext/js/uploads.js"></script>
+       
+       <script src="ext/js/delete.js"></script>
         
         <script type="text/javascript">
         	$(function () {
@@ -65,5 +67,7 @@
         	});
         	
         </script>
+        
+                
     </body>
 </html>
