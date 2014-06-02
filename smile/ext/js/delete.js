@@ -34,10 +34,12 @@ function deleteActivity(activityID) {
           url: "activity-delete.php",
           
           data: "actid=" + activityID, 
+          
+         
   
           success:function(response){
           console.log(response);
-          //TODO append in the UI
+           //TODO append in the UI
            // alert('success');
           },
             error: function(response){
@@ -46,7 +48,8 @@ function deleteActivity(activityID) {
             }
         });
   
-  
+  $('#activity_'+activityID).remove();
+   
   return false;
 }
   

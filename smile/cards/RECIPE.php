@@ -8,7 +8,7 @@
 -->
 
 
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="activity_<?php echo $item->{'id'}?>">
                 <?php if ($item->{'context'}->{'image'} != '') { ?>
                 <div class="panel-image">
                     <img src="<?php echo $item->{'context'}->{'image'}?>" class="panel-image-preview">
@@ -24,7 +24,7 @@
                  <?php if ($item->{'context'}->{'image'} != '') { ?>
                     <h4>How to use this product?</h4>
                  <?php } ?>
-                    <p><?php echo $item->{'context'}->{'description'}?> </p>
+                    <p><?php echo nl2br($item->{'context'}->{'description'})?> </p>
                 </div>
                 <div class="panel-footer text-center">
                     <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>

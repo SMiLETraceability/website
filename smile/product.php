@@ -50,7 +50,7 @@ $ac_data_arr = json_decode($ac_response);
                 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a href="#" class="btn btn-danger danger">Delete</a>
+                    <a class="btn btn-danger danger">Delete</a>
                 </div>
             </div>
         </div>

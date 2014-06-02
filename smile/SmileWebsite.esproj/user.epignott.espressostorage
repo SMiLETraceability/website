@@ -7,20 +7,23 @@
 	<key>ESProjectWindowState</key>
 	<dict>
 		<key>ContentSize</key>
-		<string>{1298, 751}</string>
+		<string>{1440, 747}</string>
 		<key>ProjectURL</key>
 		<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/SmileWebsite.esproj/</string>
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{73, 877}</string>
+		<string>{85, 869}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
 	<key>com.macrabbit.Espresso.FileManager.FileControllerState</key>
 	<dict>
 		<key>ExpandedURLs</key>
-		<array/>
+		<array>
+			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards</string>
+			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/js</string>
+		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
 	<false/>
@@ -97,6 +100,24 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/INGREDIENT.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/DESCRIPTION.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/PRODUCER.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/js/delete.js</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

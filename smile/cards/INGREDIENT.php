@@ -9,7 +9,7 @@
 -->
 
 
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="activity_<?php echo $item->{'id'}?>">
             
              <?php if ($item->{'context'}->{'image'} != '') { ?>
                 <div class="panel-image">
@@ -27,7 +27,7 @@
                     <?php if ($item->{'context'}->{'image'} != '') { ?>             
                     <h4>What did we use?</h4>
                     <?php } ?>
-                    <p><?php echo $item->{'context'}->{'description'}?> </p>
+                    <p><?php echo nl2br($item->{'context'}->{'description'}) ?> </p>
                     <p><strong>Producer: </strong><?php echo $item->{'context'}->{'producer'}?> </p>
                     <p><strong>Location: </strong><?php echo $item->{'context'}->{'location'}?> </p>
                     
