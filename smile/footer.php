@@ -31,6 +31,9 @@
         <script src="ext/js/addIdentifiers.js"></script>
         <script src="ext/js/addCategories.js"></script>
         <script src="ext/js/addIngredients.js"></script>
+        <script src="ext/js/addActivities.js"></script>
+        
+        
         <!--Geolocation-->
         <script src="ext/js/geolocation.js"></script>
         <?php if ($page === "item-add") { ?>
@@ -58,6 +61,8 @@
        <script src="js/jquery.fileupload.js"></script>
         
        <script src="ext/js/uploads.js"></script>
+       
+       <script src="ext/js/delete.js"></script>
         
         <script type="text/javascript">
         	$(function () {
@@ -65,5 +70,7 @@
         	});
         	
         </script>
+        
+                
     </body>
 </html>

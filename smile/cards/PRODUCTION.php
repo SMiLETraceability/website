@@ -9,7 +9,12 @@
 
 
             <div class="panel panel-default">
-                <div class="panel-heading"><h4>How was it made?</h4></div>
+                <div class="panel-heading"><h4>How was it made?
+                <?php if ($page === "product") { ?>
+                   <a href="#" data-label="H" data-activity-id="<?php echo $item->{'id'} ?>" class="btn btn-danger active" role="button" style="float:right;margin-left:5px; margin-right:5px;" data-toggle="modal" data-target="#confirm-delete-activity">Remove</a>        
+                <?php }  ?> 
+                </h4>
+                </div>
                 <div class="panel-body">
                 <p><?php echo $item->{'context'}->{'description'}?></p>
                 
