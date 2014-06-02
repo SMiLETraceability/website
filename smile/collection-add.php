@@ -4,17 +4,17 @@
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		
 		//Get the properties (key-value pairings) from the dynamic form:
-		$properties = get_form_data_kv('property_label_','property_value_');
+		//$properties = get_form_data_kv('property_label_','property_value_');
 
 		//Get the tags (values) from the dynamic form:
-		$tags       = get_form_data_v('tag_');
+		//$tags       = get_form_data_v('tag_');
 
 		//Create the data array:
 		$dataArray = array(
 				'name' 		  => htmlentities($_POST['Name']),
 				'description' => htmlentities($_POST['Description']),
-				'properties'  => $properties,
-				'tags' 		  => $tags
+				//'properties'  => $properties,
+				//'tags' 		  => $tags
 		);
 
 		//API Url:
@@ -27,10 +27,27 @@
 		$headers = array("Content-Type: application/json","ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a","BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
 
 		//Create the REST call:
-		$status = rest_post($url, $data, $headers);
+		$response = rest_post($url, $data, $headers);
 		
 		//For testing purposes:
 		//print_r($status);
+	    
+	    $userobj = json_decode($response);
+
+	    $status = $userobj->{'statusCode'};
+
+        //Check if the collection creation was successful:
+        if($status && $status!=200){
+        	$errors[] = $userobj->{'errors'}[0];
+            $errors[] = $userobj->{'moreInfo'};
+        }
+
+		//everything was successful, redirect to product view page
+        if(empty($errors)){
+        	$collection_id = $userobj->{'id'};
+        	header("Location: collection.php?colid=$collection_id");
+            die();  
+        }
 	}
 ?>
 <?php include('header.php'); ?>
@@ -65,21 +82,24 @@
 				    	</div>
 				  	</div><!--End of .form-group-->
 
+                    <!--
 				  	<h3 class="col-sm-2">Properties:</h3><button type="button" class="btn btn-primary add-properties" style="margin-top: 15px;margin-left: 5px;">Add Properties</button>
 				  	<br/><br/><br/>
 
 				  	<div class="properties">
-				  	</div><!--End of .properties-->
+				  	</div>
+				    
 
 				  	<h3 class="col-sm-2">Tags:</h3><button type="button" class="btn btn-primary add-tags" style="margin-top: 15px;margin-left: 5px;">Add Tags</button>
 				  	<br/><br/><br/>
 
 				  	<div class="tags">
-				  	</div><!--End of .tags-->
+				  	</div>
+                    -->
 
 				  	<div class="form-group">
 				    	<div class="col-sm-offset-2 col-sm-10">
-				      		<button type="submit" class="btn btn-primary">Add Collection</button>
+				      		<button type="submit" class="btn btn-primary">Add</button>
 				      		<button type="reset" class="btn btn-primary">Reset</button>
 				    	</div>
 				  	</div><!--End of .form-group-->

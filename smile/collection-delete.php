@@ -19,4 +19,6 @@
 	//print_r($response);
 
 	//Verify if the delete code is ok then redirect:
+	header("Location: collection-list-all.php");
+	die();
 ?>
