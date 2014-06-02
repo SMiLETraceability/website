@@ -55,7 +55,7 @@
       	<div class="row">
       		<?php include('dashboard-sidebar.php'); ?>
 	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-	          	<h1 class="page-header">Add Collection</h1>
+	          	<h1 class="page-header">Add box</h1>
 	          	<form class="form-horizontal form-register" method="post" role="form">
 
 					<div class="form-group">

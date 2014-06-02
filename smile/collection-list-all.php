@@ -55,7 +55,7 @@
       	<div class="row">
       		<?php include('dashboard-sidebar.php'); ?>
 	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-	          	<h1 class="page-header">Collections &nbsp;&nbsp;<a href="collection-add.php" class="btn btn-primary btn-lg active" role="button" style="float:right;">Add Collection</a></h1>
+	          	<h1 class="page-header">Boxes &nbsp;&nbsp;<a href="collection-add.php" class="btn btn-primary btn-lg active" role="button" style="float:right;">Add Box</a></h1>
 
 	          	<div class="table-responsive" style="clear:both;">
 	            	<table class="table table-striped footable" data-page-size="10">

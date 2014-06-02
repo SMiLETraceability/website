@@ -13,7 +13,7 @@
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{249, 1418}</string>
+		<string>{151, 1403}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -22,6 +22,7 @@
 		<key>ExpandedURLs</key>
 		<array>
 			<string>file://localhost/Users/epignott/smile/website/smile/cards</string>
+			<string>file://localhost/Users/epignott/smile/website/smile/ext/js</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -81,6 +82,18 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/epignott/smile/website/smile/footer.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/epignott/smile/website/smile/collection-add.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/epignott/smile/website/smile/collection-update.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
