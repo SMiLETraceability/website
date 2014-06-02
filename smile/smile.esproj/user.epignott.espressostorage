@@ -7,13 +7,13 @@
 	<key>ESProjectWindowState</key>
 	<dict>
 		<key>ContentSize</key>
-		<string>{1873, 1112}</string>
+		<string>{2162, 1106}</string>
 		<key>ProjectURL</key>
 		<string>file://localhost/Users/epignott/smile/website/smile/smile.esproj/</string>
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{645, 1418}</string>
+		<string>{859, 1368}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -21,7 +21,7 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
-			<string>file://localhost/Users/epignott/smile/website/smile/cards</string>
+			<string>file://localhost/Users/epignott/smile/website/smile/ext/img</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -105,6 +105,30 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/epignott/smile/website/smile/core/init.core.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/epignott/smile/website/smile/dashboard.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/epignott/smile/website/smile/cards/NEW_RECIPE.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/epignott/smile/website/smile/cards/NEW_INGREDIENT.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/epignott/smile/website/smile/cards/NEW_PRODUCTION.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

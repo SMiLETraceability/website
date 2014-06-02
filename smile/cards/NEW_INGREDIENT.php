@@ -34,9 +34,14 @@
                       </div>
                       </div><!--End of .form-group-->
                       <div class="form-group"><label for="Ingredient Image" class="col-sm-3 control-label">Image URL:</label>
-                       <div class="col-md-8">
+                       <div class="col-md-6">
                         <input type="text" class="form-control" id="ingredient_image" name="ingredient_image" placeholder="Please enter an image url" title="Please enter image link." required>
                        </div>
+                       <div class="col-sm-1">		
+                        		<span class="btn btn-primary btn-file">Browse<input id="photo_upload_ingredient" type="file" name="files[]" data-url="http://smile.abdn.ac.uk/smile/server/php/" multiple></span>
+                        </div>
+                       
+                       
                        </div><!--End of .form-group-->
                                               
                     

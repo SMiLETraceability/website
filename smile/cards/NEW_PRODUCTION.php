@@ -30,9 +30,12 @@
                  
                  								<div class="form-group">
                  									<label for="production_picture" class="col-sm-3 control-label">Picture URL:</label>
-                 									<div class="col-md-8">
+                 									<div class="col-md-6">
                  										<input type="text" class="form-control" id="production_picture" name="production_picture" placeholder="Please enter a picture url:" title="Please enter picture link." value="<?php echo isset($_POST['production_picture'])?$_POST['production_picture'] :''?>" required>
                  									</div>
+                 									<div class="col-sm-1">		
+                 									 		<span class="btn btn-primary btn-file">Browse<input id="photo_upload_production" type="file" name="files[]" data-url="http://smile.abdn.ac.uk/smile/server/php/" multiple></span>
+                 									 </div>
                  								</div><!--End of .form-group-->
                  						                 <!--
                  								<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/production_help.png" alt="">'>Sample Preview</button>
