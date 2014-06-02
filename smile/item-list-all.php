@@ -17,6 +17,33 @@
 	$size = sizeof($data_arr->{'items'});
 ?>
 <?php include('header.php'); ?>
+<!-- delete modal window -->
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+            
+                <div class="modal-body">
+                    <p>You are about to delete a item from you catalogue.</p>
+                    <p>Do you want to proceed?</p>
+                    <p class="debug-url"></p>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" class="btn btn-danger danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- end of delete modal window -->
+
 <div class="container-fluid">
       	<div class="row">
         	<?php include('dashboard-sidebar.php');?>
@@ -38,6 +65,8 @@
 	              		</thead>
 	              		<tbody>
 	              			<?php
+	              			if ($size == 0) { echo "<tr > <td colspan=\"7\">No items in the catalogue</td></tr>"; }
+	              			
 	              			for($index = 0, $k=1; $index<$size; $index++, $k++){
 								//print_r($data_arr->{'items'}[$index]);
 								echo "<tr>";
@@ -52,7 +81,7 @@
 								
 								//echo "<td><a href=\"#\" onclick=\"printItem(".$data_arr->{'items'}[$index]->{'id'}.",'".$data_arr->{'items'}[$index]->{'name'}."');\" class=\"btn btn-primary btn-sm active\" role=\"button\">Print QR Code</a></td>";
 								
-								echo "<td><a href=\"item-delete.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-danger btn-sm active\" role=\"button\">Delete Item</a></td>";
+								echo "<td><a href=\"#\" data-label=\"".$data_arr->{'items'}[$index]->{'name'}."\" data-href=\"item-delete.php?itmid=".$data_arr->{'items'}[$index]->{'id'}."\" class=\"btn btn-danger btn-sm active\" role=\"button\" data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete Item</a></td>";
 								echo "</tr>";
 							}
 	              			?>

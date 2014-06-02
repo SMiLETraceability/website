@@ -72,7 +72,7 @@ $size = sizeof($data_arr->{'products'});
 					</thead>
 					<tbody>
 						<?php
-						if ($size == 0) { echo "<tr > <td colspan=\"7\">No items in the catalogue</td></tr>"; }
+						if ($size == 0) { echo "<tr > <td colspan=\"7\">No products in the catalogue</td></tr>"; }
 						
 						for($index = 0, $k=1; $index<$size; $index++, $k++){
 							echo "<tr>";

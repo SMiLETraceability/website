@@ -70,6 +70,8 @@
 	              		</thead>
 	              		<tbody>
 	              			<?php
+	              			if ($size == 0) { echo "<tr > <td colspan=\"7\">No boxes in the catalogue</td></tr>"; }
+	              			
 	              			for($index = 0; $index<$size; $index++){
 								//print_r($data_arr->{'items'}[$index]);
 								echo "<tr>";

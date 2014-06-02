@@ -42,7 +42,7 @@ $(document).ready(function(){
      
      <div class="row">
         <div class="col-md-1"><span class="glyphicon glyphicon-gift largeicon"></span></div>
-        <div class="col-md-11"><p>The producer can create collection of items (on-line orders from customers). TrackMyFood generates a unique code for each collection which can be applied on the delivery box. Couriers can use these to inform the producer about the whereabouts of the delivery.</p></div>
+        <div class="col-md-11"><p>The producer can create boxes with items (on-line orders from customers). TrackMyFood generates a unique code for each box used for the delivery. Couriers can use these to inform the producer about the whereabouts of the delivery.</p></div>
       </div>           
     </div>
   </div>

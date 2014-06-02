@@ -103,7 +103,7 @@ $ac_data_arr = json_decode($ac_response);
 				<a href="product-update.php?prodid=<?php echo $_GET['prodid'];?>" class="btn btn-warning active" role="button" style="float:right;margin-left:5px; margin-right:5px;">Update Product</a>&nbsp;&nbsp;
 				<div class="btn-group"  style="float:right;margin-left:5px; margin-right:5px;">
 						  <button type="button" class="btn btn-warning dropdown-toggle active" data-toggle="dropdown">
-						    Add a new card <span class="caret"></span>
+						    New Card <span class="caret"></span>
 						  </button>
 						<ul class="dropdown-menu" role="menu">
 						    <li><a href="#" data-toggle="modal" data-target="#new-recipe">How to use this Product?</a></li>

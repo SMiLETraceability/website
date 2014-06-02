@@ -13,7 +13,7 @@
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{63, 809}</string>
+		<string>{73, 878}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -21,8 +21,6 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
-			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards</string>
-			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/css</string>
 			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/js</string>
 		</array>
 	</dict>
@@ -40,55 +38,13 @@
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/item-web.php</string>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/product.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/RECIPE.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/css/style.css</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/PRODUCTION.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/header.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/footer.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/js/traceability.js</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/PRODUCER.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/DESCRIPTION.php</string>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/collection-list-all.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
@@ -101,42 +57,6 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/product-list-all.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/collection-list-all.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/dashboard.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/upload.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/product-add.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/js/uploads.js</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/product-update.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
