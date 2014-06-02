@@ -1,12 +1,14 @@
+
 <?php include('core/init.core.php');?>
 <?php
 	//Get the item id:
-	$productId = $_GET['prodid'];
+	$activityId = $_GET['actid'];
+
 
 	//URL of the REST call:
-	$url = APIURL."/product/".$productId;
+	$url = APIURL."/activity/".$activityId;
 
-	//Headers of the REST call (make sure you add the other api keys):
+	//Headers of the REST call:
 	$headers  = array("Content-Type: application/json","ApplicationAuthorization: aafa460be460462dcb7e56fda6d2217a","BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
 
 	//REST delete call:
@@ -15,8 +17,6 @@
 	//Test the rest call:
 	print_r($response);
 
-	//Verify if the delete code is ok then redirect:
-	header("Location: product-list-all.php");
+	header("Location: product.php");
 	die();
-	
 ?>

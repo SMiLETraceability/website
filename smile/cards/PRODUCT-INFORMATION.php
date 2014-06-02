@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
     <?php if ($page === "item") { ?>
-       <h4>Product Information  <a href="product-update.php?prodid=<?php echo $data_arr->{'product'}->{'id'}; ?>" class="btn btn-warning btn-sm pull-right">Update product</a></h4>
+       <h4>Product Information  <a href="product.php?prodid=<?php echo $data_arr->{'product'}->{'id'}; ?>" class="btn btn-info btn-sm pull-right" style="margin-left: 5px;">View Product</a> <a href="product-update.php?prodid=<?php echo $data_arr->{'product'}->{'id'}; ?>" class="btn btn-warning btn-sm pull-right">Update Product</a>&nbsp;&nbsp;</h4>
     <?php } else { ?>   
     <h4>Product Information</h4> 
     <?php } ?> 

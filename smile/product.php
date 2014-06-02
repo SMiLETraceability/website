@@ -19,6 +19,11 @@ $data_arr = json_decode($response);
 $ac_url = APIURL."/activity/product/".$_GET['prodid'];
 $ac_response = rest_get($ac_url, $headers);
 $ac_data_arr = json_decode($ac_response);
+
+//print_r($ac_response);
+//die();
+
+
 ?>
 <?php include('mobile-header.php'); ?>
 
@@ -53,6 +58,33 @@ $ac_data_arr = json_decode($ac_response);
 
 <!-- end of delete modal window -->
 
+
+<!-- delete activity modal window -->
+
+<div class="modal fade" id="confirm-delete-activity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+            
+                <div class="modal-body">
+                    <p>You are about to delete an activity from this product.</p>
+                    <p>Do you want to proceed?</p>
+                    <p class="debug-url"></p>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" onclick="deleteActivity();" class="btn btn-danger danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- end of delete activity modal window -->
 
 
 <?php include('cards/NEW_INGREDIENT.php'); ?>
