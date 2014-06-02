@@ -24,12 +24,12 @@ if($activity === "PRODUCTION"){
 
 	//Check if video is empty:
 	if(empty($p_video) == true){
-		$p_video = " ";
+		$p_video = "";
 	}
 
 	//Check if image is empty:
 	if(empty($p_image) == true){
-		$p_image = " ";
+		$p_image = "";
 	}
 
 	//Create the array:
@@ -74,11 +74,11 @@ if($activity === "PRODUCTION"){
 	}
 
 	if(empty($r_description) == true){
-		$r_description = " ";
+		$r_description = "";
 	}
 
 	if(empty($r_image) == true){
-		$r_image = " ";
+		$r_image = "";
 	}
 
 	$dataArr = array(
@@ -123,7 +123,9 @@ if($activity === "PRODUCTION"){
 	$ingredientProducerLocation        = $_POST['ingredient_producer_location'];
 
 
-
+	if(empty($ingredientImage ) == true){
+			$ingredientImage  = "";
+	}
 
 
 		$dataArr = array(

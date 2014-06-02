@@ -18,9 +18,18 @@
                 <div class="panel-body">
                 <p><?php echo $item->{'context'}->{'description'}?></p>
                 
+                 <?php if ($item->{'context'}->{'video'} != '') { ?>
                    <div class="js-video">
                     <iframe src="<?php echo $item->{'context'}->{'video'}?>" frameborder="0" allowfullscreen></iframe>
                    </div>
+                 <?php } ?>
+                 
+                 <?php if ($item->{'context'}->{'image'} != '') { ?>
+                   
+                   <img src="<?php echo $item->{'context'}->{'image'}?>" class="panel-image-preview">
+                 <?php } ?>
+                 
+                 
                 </div>
                 <div class="panel-footer text-center">
                     <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>

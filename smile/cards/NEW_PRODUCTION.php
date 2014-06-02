@@ -23,7 +23,7 @@
                  								<div class="form-group">
                  									<label for="production_video" class="col-sm-3 control-label">Video URL:</label>
                  									<div class="col-md-8">
-                 										<input type="text" class="form-control" id="production_video" name="production_video" placeholder="Please enter a video url (Youtube)" title="Please enter video link." value="<?php echo isset($_POST['production_video'])?$_POST['production_video'] :''?>" required>
+                 										<input type="text" class="form-control" id="production_video" name="production_video" placeholder="Please enter a video url (Youtube)" title="Please enter video link." value="<?php echo isset($_POST['production_video'])?$_POST['production_video'] :''?>" >
                  									</div>
                  								</div><!--End of .form-group-->
                  								<br />
@@ -31,7 +31,7 @@
                  								<div class="form-group">
                  									<label for="production_picture" class="col-sm-3 control-label">Picture URL:</label>
                  									<div class="col-md-6">
-                 										<input type="text" class="form-control" id="production_picture" name="production_picture" placeholder="Please enter a picture url:" title="Please enter picture link." value="<?php echo isset($_POST['production_picture'])?$_POST['production_picture'] :''?>" required>
+                 										<input type="text" class="form-control" id="production_picture" name="production_picture" placeholder="Please enter a picture url:" title="Please enter picture link." value="<?php echo isset($_POST['production_picture'])?$_POST['production_picture'] :''?>" >
                  									</div>
                  									<div class="col-sm-1">		
                  									 		<span class="btn btn-primary btn-file">Browse<input id="photo_upload_production" type="file" name="files[]" data-url="http://smile.abdn.ac.uk/smile/server/php/" multiple></span>

@@ -13,16 +13,14 @@
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{73, 878}</string>
+		<string>{73, 877}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
 	<key>com.macrabbit.Espresso.FileManager.FileControllerState</key>
 	<dict>
 		<key>ExpandedURLs</key>
-		<array>
-			<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/ext/js</string>
-		</array>
+		<array/>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
 	<false/>
@@ -57,6 +55,48 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/product-list-all.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/NEW_INGREDIENT.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/NEW_RECIPE.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/activity.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/RECIPE.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/NEW_PRODUCTION.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/PRODUCTION.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Applications/XAMPP/xamppfiles/htdocs/website/smile/cards/INGREDIENT.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
