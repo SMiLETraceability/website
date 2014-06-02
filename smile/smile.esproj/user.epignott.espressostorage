@@ -7,13 +7,13 @@
 	<key>ESProjectWindowState</key>
 	<dict>
 		<key>ContentSize</key>
-		<string>{2162, 1106}</string>
+		<string>{2375, 1110}</string>
 		<key>ProjectURL</key>
 		<string>file://localhost/Users/epignott/smile/website/smile/smile.esproj/</string>
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{859, 1368}</string>
+		<string>{249, 1418}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -21,7 +21,7 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
-			<string>file://localhost/Users/epignott/smile/website/smile/ext/img</string>
+			<string>file://localhost/Users/epignott/smile/website/smile/cards</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -32,103 +32,55 @@
 		<array>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/product.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/collection.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/ext/js/delete.js</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/cards/collection-items.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/cards/INGREDIENT.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/item-update.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/ext/js/activity.js</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/item.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/activity-delete.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/collection-item-delete.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/product-delete.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/collection-list-all.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/cards/PRODUCTION.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/collection-add-items.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/cards/RECIPE.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/ext/js/collections.js</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/cards/PRODUCT-INFORMATION.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/dashboard-sidebar.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/ext/js/uploads.js</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/product-add.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/core/init.core.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/dashboard.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/cards/NEW_RECIPE.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/cards/NEW_INGREDIENT.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/epignott/smile/website/smile/cards/NEW_PRODUCTION.php</string>
+				<string>file://localhost/Users/epignott/smile/website/smile/footer.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

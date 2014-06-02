@@ -22,6 +22,35 @@
 
 <?php include('header.php'); ?>
 
+<!-- delete modal window -->
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+            
+                <div class="modal-body">
+                    <p>You are about to delete box from you catalogue.</p>
+                    <p>Do you want to proceed?</p>
+                    <p class="debug-url"></p>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" class="btn btn-danger danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- end of delete modal window -->
+
+
+
 	<div class="container-fluid">
       	<div class="row">
       		<?php include('dashboard-sidebar.php'); ?>
@@ -52,7 +81,7 @@
 								echo "<td> <input type=\"checkbox\" class=\"qr-item\" name=\"". $data_arr->{'collections'}[$index]->{'name'}."\" value=\"" . $data_arr->{'collections'}[$index]->{'id'} . "\"></td>";
 
 								//echo "<td><a href=\"\" class=\"btn btn-primary btn-sm active\" role=\"button\">Print QR Code</a></td>";
-								echo "<td><a href=\"collection-delete.php?colid=".$data_arr->{'collections'}[$index]->{'id'}."\" class=\"btn btn-danger btn-sm active\" role=\"button\">Delete</a></td>";
+								echo "<td><a href=\"#\" data-label=\"".$data_arr->{'collections'}[$index]->{'name'}."\" data-href=\"collection-delete.php?colid=".$data_arr->{'collections'}[$index]->{'id'}."\" class=\"btn btn-danger btn-sm active\" role=\"button\" data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete</a></td>";
 								echo "</tr>";
 							}
 	              			?>

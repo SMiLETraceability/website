@@ -23,6 +23,8 @@
 <?php
   
   $collection_id = $_GET['colid'];
+  
+  $collection_name = $_GET['colname'];
 
   if($_SERVER['REQUEST_METHOD']=='POST'){
   
@@ -45,29 +47,6 @@
 
 		//Create the REST call:
 	  $response = rest_put($url, $data, $headers);
-
-	  //print_r($data);
-		
-		//For testing purposes:
-		//print_r($status);
-	    
-	   // $userobj = json_decode($response);
-
-	  //  $status = $userobj->{'statusCode'};
-
-        //Check if the collection creation was successful:
-      //  if($status && $status!=200){
-       // 	$errors[] = $userobj->{'errors'}[0];
-        //    $errors[] = $userobj->{'moreInfo'};
-        //}
-
-		//everything was successful, redirect to product view page
-        //if(empty($errors)){
-        	//$collection_id = $userobj->{'id'};
-        	//header("Location: collection.php?colid=$collection_id");
-         //   die();  
-        //}
-    
     
   }
   header("Location: collection.php?colid=$collection_id");
@@ -84,7 +63,7 @@
         	<?php include('dashboard-sidebar.php');?>
         	
 	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-	          	<h1 class="page-header">All items:&nbsp;&nbsp;
+	          	<h1 class="page-header">Add items to: <?php echo  $collection_name;  ?>
 	          	<form class="form-horizontal form-register" method="post" role="form">	
 	          	<div class="table-responsive" style="clear:both;">
 	            	<table class="table table-striped footable" data-page-size="10">
@@ -93,7 +72,7 @@
 	                  			<th>Name:</th>
 	                  			<th>Description:</th>
 	                  			<th>Product:</th>
-	                  			<th><input type="checkbox" id="selectall"/> Select All</th>	                  			
+	                  			<th><input type="checkbox" onclick="$('input[name*=\'selitems\']').prop('checked', this.checked);" id="selectall"/> Select All</th>	                  			
 	                		</tr>
 	              		</thead>
 	              		<tbody>
@@ -106,7 +85,7 @@
 								echo "<td>".$data_arr->{'items'}[$index]->{'product'}."</td>";			
 								//echo "<td> <input type=\"checkbox\" class=\"qr-item\" name=\"selitems\" value=\"ok\"\></td>";
 
-								echo "<td> <input type=\"checkbox\" class=\"qr-item\" name=\"selitems[]\" value=\"" . $data_arr->{'items'}[$index]->{'id'} . "\"></td>";
+								echo "<td> <input type=\"checkbox\" class=\"co-item\" name=\"selitems[]\" value=\"" . $data_arr->{'items'}[$index]->{'id'} . "\"></td>";
 								
 								//echo "<td> <input type=\"checkbox\" class=\"qr-item\" name=\"". $data_arr->{'items'}[$index]->{'name'}."\" value=\"" . $data_arr->{'items'}[$index]->{'id'} . "\"></td>";
 
