@@ -21,9 +21,9 @@
 		}
 
 		//Check if the photos field is empty:
-		if(empty($_POST['photos'])){
-			$errors[] = 'The photos field cannot be empty.';
-		}
+		/*if(empty($_POST['photo_url'])){
+			$errors[] = 'The photo_url field cannot be empty.';
+		}*/
 
 		//Check if the password or re-password are empty:
 		if(empty($_POST['password']) || empty($_POST['repassword'])){
@@ -40,7 +40,7 @@
 			//Create a photos array:
 			$photos  = array();
 			//Add the field value to the photos array:
-			$photos[] = htmlentities($_POST['photos']);
+			$photos[] = htmlentities($_POST['photo_url']);
 
 			//Initialize business parent id:
 			$bpid = null;
@@ -123,7 +123,10 @@
 <?php include('header.php');?>
 		<div class="container">
 			<form class="form-horizontal form-register" method="post" role="form">
+				
+				
 				<h2 class="form-register-heading">Please register your business account:</h2>
+				<p> <span style="color:Red;">*</span> fields are required.</p> 
 
 				<div class="form-group">
 					<?php if($errors){ ?>
@@ -136,31 +139,57 @@
 				</div>
 
 				<div class="form-group">
-			    	<label for="bname" class="col-sm-2 control-label">Business Name:</label>
+			    	<label for="bname" class="col-sm-2 control-label">Business Name <span style="color:Red;">*</span>:</label>
 			    	<div class="col-sm-10">
 			      		<input type="text" class="form-control" id="bname" name="bname" placeholder="Business Name" title="Enter your business name." value="<?php echo isset($_POST['bname'])?$_POST['bname'] :''?>" required autofocus />
 			    	</div>
 			  	</div><!--End of .form-group-->
 
 			  	<div class="form-group">
-			    	<label for="description" class="col-sm-2 control-label">Business Description:</label>
+			    	<label for="description" class="col-sm-2 control-label">Business Description <span style="color:Red;">*</span>:</label>
 			    	<div class="col-sm-10">
 			      		<input type="text" class="form-control" id="description" name="description" placeholder="Business Description" title="Enter your business description." value="<?php echo isset($_POST['description'])?$_POST['description'] :''?>" required autofocus />
 			    	</div>
 			  	</div><!--End of .form-group-->
 
 			  	<div class="form-group">
-			    	<label for="telephone" class="col-sm-2 control-label">Telephone Number:</label>
+			    	<label for="telephone" class="col-sm-2 control-label">Telephone Number <span style="color:Red;">*</span>:</label>
 			    	<div class="col-sm-10">
 			      		<input type="text" class="form-control" id="telephone" name="telephone" placeholder="Telephone Number" title="Enter your telephone number." value="<?php echo isset($_POST['telephone'])?$_POST['telephone'] :''?>" required autofocus />
 			    	</div>
 			  	</div><!--End of .form-group-->
 
 			  	<div class="form-group">
-			    	<label for="photos" class="col-sm-2 control-label">Photo URL:</label>
+			    	<label for="email" class="col-sm-2 control-label">E-mail <span style="color:Red;">*</span>:</label>
 			    	<div class="col-sm-10">
-			      		<input type="photos" class="form-control" id="photos" name="photos" placeholder="Photo Url" value="<?php echo isset($_POST['photos'])?$_POST['photos'] :''?>" required />
+			      		<input type="email" class="form-control" id="email" name="email" placeholder="E-mail Address" required value="<?php echo isset($_POST['email'])?$_POST['email'] :''?>" />
 			    	</div>
+			  	</div><!--End of .form-group-->
+			  
+			  	<div class="form-group">
+			    	<label for="password" class="col-sm-2 control-label">Password <span style="color:Red;">*</span>:</label>
+			    	<div class="col-sm-10">
+			      		<input type="password" class="form-control" id="password" name="password" placeholder="Password" title="Please select a password." required>
+			    	</div>
+			  	</div><!--End of .form-group-->
+			  
+			  	<div class="form-group">
+			    	<label for="repassword" class="col-sm-2 control-label">Re-type Password  <span style="color:Red;">*</span>:</label>
+			    	<div class="col-sm-10">
+			      		<input type="password" class="form-control" id="repassword" name="repassword" placeholder="Retype Password" title="Please repeat your password." required>
+			    	</div>
+			  	</div><!--End of .form-group-->
+
+			  	<div class="form-group">
+			    	<label for="photos" class="col-sm-2 control-label">Photo URL:</label>
+			    	<div class="col-sm-8">
+			      		<input type="photos" class="form-control" id="photo_url" name="photo_url" placeholder="Photo Url" value="<?php echo isset($_POST['photo_url'])?$_POST['photo_url'] :''?>" />
+			    	</div>
+
+			    	<div class="col-sm-2">		
+			    		<span class="btn btn-primary btn-file">  Upload Photo <input id="photo_upload" type="file" name="files[]" data-url="http://smile.abdn.ac.uk/smile/server/php/" multiple></span>
+			    	</div>	
+
 			  	</div><!--End of .form-group-->
 
 			  	<div class="form-group">
@@ -198,27 +227,6 @@
 			    	</div>
 			  	</div><!--End of .formg-group-->
 
-
-			  	<div class="form-group">
-			    	<label for="email" class="col-sm-2 control-label">E-mail:</label>
-			    	<div class="col-sm-10">
-			      		<input type="email" class="form-control" id="email" name="email" placeholder="E-mail Address" required value="<?php echo isset($_POST['email'])?$_POST['email'] :''?>" />
-			    	</div>
-			  	</div><!--End of .form-group-->
-			  
-			  	<div class="form-group">
-			    	<label for="password" class="col-sm-2 control-label">Password:</label>
-			    	<div class="col-sm-10">
-			      		<input type="password" class="form-control" id="password" name="password" placeholder="Password" title="Please select a password." required>
-			    	</div>
-			  	</div><!--End of .form-group-->
-			  
-			  	<div class="form-group">
-			    	<label for="repassword" class="col-sm-2 control-label">Re-type Password:</label>
-			    	<div class="col-sm-10">
-			      		<input type="password" class="form-control" id="repassword" name="repassword" placeholder="Retype Password" title="Please repeat your password." required>
-			    	</div>
-			  	</div><!--End of .form-group-->
 			  
 			  	<div class="form-group">
 			    	<div class="col-sm-offset-2 col-sm-10">
