@@ -1,13 +1,13 @@
-<div class="modal fade" id="new-recipe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="edit-recipe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             
-	             <form class="form-horizontal form-recipe-add new-recipe-form" action="activity.php?activity=RECIPE&call=new&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
+	             <form class="form-horizontal form-recipe-add edit-recipe-form" action="activity.php?activity=RECIPE&call=edit&prodid=<?php echo $_GET['prodid']; ?>&activityID=" method="post" role="form">
 	             
 	             
 	                <div class="modal-header">
 	                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	                    <h4 class="modal-title" id="myModalLabel">How to use this product?</h4>
+	                    <h4 class="modal-title" id="myModalLabel">Editing: How to use this product?</h4>
 	                </div>
 	            
 	                <div class="modal-body">
@@ -18,14 +18,14 @@
 								<div class="form-group">
 									<label for="Recipe Description" class="col-sm-3 control-label">Recipe Details:</label>
 									<div class="col-md-9">
-										<textarea type="text" rows="5" class="form-control" id="recipe_description" name="recipe_description" title="Please enter recipe details text." value="<?php echo isset($_POST['recipe_description'])?$_POST['recipe_description'] :''?>" required></textarea>
+										<textarea type="text" rows="5" class="form-control" id="recipe_description" name="recipe_description" title="Recipe details text." required></textarea>
 									</div>
 								</div><!--End of .form-group-->
 			
 								<div class="form-group">
 									<label for="Recipe Image" class="col-sm-3 control-label">Image URL:</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" id="recipe_image" name="recipe_image" placeholder="Please enter an image url" title="Please enter image link." value="<?php echo isset($_POST['recipe_image'])?$_POST['recipe_image'] :''?>" >
+										<input type="text" class="form-control" id="recipe_image" name="recipe_image" placeholder="Please enter an image url" title="Image link." >
 									</div>
 									<div class="col-sm-1">		
 									 		<span class="btn btn-primary btn-file">Browse<input id="photo_upload_recipe" type="file" name="files[]" data-url="http://smile.abdn.ac.uk/smile/server/php/" multiple></span>
@@ -41,7 +41,7 @@
 	                
 	                <div class="modal-footer">
 	                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-	                    <button type="submit" class="btn btn-primary" id="add-recipe-btn">Submit</button>
+	                    <button type="submit" class="btn btn-primary" id="edit-recipe-btn">Submit</button>
 	                </div>
 	                
 	            </form><!--End of form-->

@@ -11,22 +11,24 @@
             <div class="panel panel-default" id="activity_<?php echo $item->{'id'}?>">
                 <div class="panel-heading"><h4>How was it made?
                 <?php if ($page === "product") { ?>
-                   <a href="#" data-label="H" data-activity-id="<?php echo $item->{'id'} ?>" class="btn btn-danger active" role="button" style="float:right;margin-left:5px; margin-right:5px;" data-toggle="modal" data-target="#confirm-delete-activity">Remove</a>        
+                   <a href="#" data-label="H" data-activity-id="<?php echo $item->{'id'} ?>" class="btn btn-danger btn-xs active" role="button" style="float:right;margin-left:5px; margin-right:5px;" data-toggle="modal" data-target="#confirm-delete-activity">Remove</a>
+                   <a href="#" data-activity-id="<?php echo $item->{'id'} ?>" class="btn btn-primary btn-xs active" role="button" style="float:right;margin-left:5px; margin-right:5px;" data-toggle="modal" data-target="#edit-production">Edit</a>        
+
                 <?php }  ?> 
                 </h4>
                 </div>
                 <div class="panel-body">
-                <p><?php echo nl2br($item->{'context'}->{'description'})?></p>
+                <p id="activity_<?php echo $item->{'id'}?>_description"><?php echo nl2br($item->{'context'}->{'description'})?></p>
                 
                  <?php if ($item->{'context'}->{'video'} != '') { ?>
                    <div class="js-video">
-                    <iframe src="<?php echo $item->{'context'}->{'video'}?>" frameborder="0" allowfullscreen></iframe>
+                    <iframe id="activity_<?php echo $item->{'id'}?>_video" src="<?php echo $item->{'context'}->{'video'}?>" frameborder="0" allowfullscreen></iframe>
                    </div>
                  <?php } ?>
                  
                  <?php if ($item->{'context'}->{'image'} != '') { ?>
                    
-                   <img src="<?php echo $item->{'context'}->{'image'}?>" class="panel-image-preview">
+                   <img id="activity_<?php echo $item->{'id'}?>_picture" src="<?php echo $item->{'context'}->{'image'}?>" class="panel-image-preview">
                  <?php } ?>
                  
                  
