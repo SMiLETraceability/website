@@ -1,0 +1,30 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-register {
+  max-width: 900px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-register-heading{
+	margin-left: 30%;
+	margin-bottom: 30px;
+}
+
+.feedback-error{
+	margin:0 auto;
+	width:250px;
+	color: #a94442;
+	list-style: none;
+}
+
+.feedback-ok{
+	margin:0 auto;
+	width:250px;
+	color: #008000;
+	list-style: none;
+}

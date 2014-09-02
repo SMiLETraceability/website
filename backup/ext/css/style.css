@@ -1,0 +1,113 @@
+@import url('register.css');
+@import url('signin.css');
+@import url('dashboard.css');
+@import url('sticky-footer-navbar.css');
+
+select[class*="span"] {
+    margin-bottom: 0;
+}
+
+
+.btn-group, .btn-group-vertical {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.divider {
+    border-top: 1px solid #000 !important;
+    border-bottom: 1px solid #000 !important;
+    height: 1px;
+}
+
+.popover{
+    display:block !important;
+    max-width: 400px!important;
+    width:auto;
+}
+
+.jumbotron{
+    background-color:transparent !important;
+}
+
+.jumbotron h1, .jumbotron .paratop{
+    color:#fff;
+    text-shadow: 1px 1px 1px #000;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.indeximg{
+    background: url(../img/background.jpg) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+/*Autocomplete styles*/
+
+.glyphicon.largeicon {
+	font-size: 4em; 
+	margin: 8px;
+}
+
+.js-video {
+  height: 0;
+  padding-top: 25px;
+  padding-bottom: 67.5%;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.js-video.widescreen {
+  padding-bottom: 57.25%;
+}
+ 
+.js-video.vimeo {
+  padding-top: 0;
+}
+
+.js-video embed, .js-video iframe, .js-video object, .js-video video {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+
+.panel-image-preview {
+    //max-height: 100%;
+    //max-width: 100%;
+    width: 100%;
+}​
+
+.map-overlay {
+    background:transparent; 
+    position:relative; 
+    width:100%;
+    height:200px; 
+   }
+   
+   
+   
+   .btn-file {
+       position: relative;
+       overflow: hidden;
+   }
+   .btn-file input[type=file] {
+       position: absolute;
+       top: 0;
+       right: 0;
+       min-width: 100%;
+       min-height: 100%;
+       font-size: 999px;
+       text-align: right;
+       filter: alpha(opacity=0);
+       opacity: 0;
+       outline: none;
+       background: white;
+       cursor: inherit;
+       display: block;
+   }
