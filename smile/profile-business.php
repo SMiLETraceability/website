@@ -3,7 +3,7 @@
 	//Declare the errors array:
 	$errors = array();
 
-	$url = 	$url  = APIURL."/business/".$_SESSION['account']['currentBusinessKey'];
+	$url = APIURL."/business/".$_SESSION['account']['currentBusinessKey'];
 	$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'], "Authorization: ".$_SESSION['account']['apiKey']);
 	
 	//Get the status code of the rest call:
@@ -12,7 +12,7 @@
 	//Decode JSON respones:
 	$data_arr = json_decode($response);
 
-	//var_dump($data_arr->{'name'});
+	//var_dump($data_arr->{'id'});
 	//exit();
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -38,14 +38,14 @@
 		}*/
 
 		//Check if the password or re-password are empty:
-		if(empty($_POST['password']) || empty($_POST['repassword'])){
+		/*if(empty($_POST['password']) || empty($_POST['repassword'])){
 			$errors[] = 'The password field cannot be empty.';
 		}
 
 		//Check if the passwords are matching:
 		if($_POST['password'] !== $_POST['repassword']){
 			$errors[] = 'Password verification failed.';
-		}
+		}*/
 
 		if(empty($errors)){
 
@@ -71,7 +71,7 @@
 
 			//Create the data array:
 			$data_array = array(
-					'name' 		  => htmlentities($_POST['bname']),
+					//'name' 		  => htmlentities($_POST['bname']),
 					'description' => htmlentities($_POST['description']),
 					'telephone'   => htmlentities($_POST['telephone']),
 					'photos'      => $photos,
@@ -81,11 +81,10 @@
 							'postcode' => htmlentities($_POST['postcode']),
 							'county'   => htmlentities($_POST['county']),
 							'country'  => htmlentities($_POST['country'])
-						),
-					'authorizationKey' => $auth,
-					'email' 		   => htmlentities($_POST['email']),
-					'password' 		   => htmlentities($_POST['password']),
-					'parentBusinessId' => $bpid
+						)
+					//'email' 		   => htmlentities($_POST['email']),
+					//'password' 		   => htmlentities($_POST['password']),
+					//'parentBusinessId' => $bpid
 				);
 
 			//Encode the data array as a json object:
@@ -93,7 +92,7 @@
 
 			//print_r($data_array);
 			//URL of the REST call:
-			$url  = APIURL."/business";
+			$url  = APIURL."/business/".$data_arr->{'id'};
 
 			// //The header of the rest call:
 			if($auth === null){
@@ -105,30 +104,21 @@
 			//print_r($headers);
 
 			//Get the status code of the rest call:
-			$response = rest_post($url, $data, $headers);
+			$response = rest_put($url, $data, $headers);
+
+
+			//var_dump($response);
+			//exit(); //202
 
 			//Decode JSON respones:
 			$data_arr = json_decode($response);
 			
 			$status = $data_arr->{'statusCode'};
 	        //Check if the business registration was successful:
-	        if($status && $status!=200){
+	        if($status && $status!=202){
 	        	//$errors[] = $data_arr->{'errors'}[0];
 	            $errors[] = $data_arr->{'moreInfo'};
 	        }
-
-			//Do something with the status call:
-			if(isset($data_arr->{'email'})){
-				if(!isset($_SESSION['account'])){
-					header('Location: login.php');
-					die();
-				}else{
-					$_SESSION['account']['businessApiKeys'][] = $data_arr->{'authorizationKey'};
-					$_SESSION['account']['businessNames'][] = $data_arr->{'name'};
-					header('Location: dashboard.php');
-					die();
-				}
-			}
 		}	
 	}
 ?>
@@ -137,6 +127,8 @@
 			<form class="form-horizontal form-register" method="post" role="form">
 				
 				<p> <span style="color:Red;">*</span> fields are required.</p> 
+
+                <?php  if(count($errors)==0 && $_SERVER['REQUEST_METHOD'] == 'POST') echo'<div class="alert alert-success" role="alert">Profile updated successfully.</div>';?>
 
 				<div class="form-group">
 					<?php if($errors){ ?>
@@ -151,7 +143,7 @@
 				<div class="form-group">
 			    	<label for="bname" class="col-sm-2 control-label">Business Name <span style="color:Red;">*</span>:</label>
 			    	<div class="col-sm-10">
-			      		<input type="text" class="form-control" id="bname" name="bname" placeholder="Business Name" title="Business name." value="<?php echo isset($data_arr->{'name'})?$data_arr->{'name'}:(isset($_POST['bname'])?$_POST['bname']:'')?>" required autofocus />
+			      		<input type="text" class="form-control" id="bname" name="bname" placeholder="Business Name" title="Business name." value="<?php echo isset($data_arr->{'name'})?$data_arr->{'name'}:(isset($_POST['bname'])?$_POST['bname']:'')?>" required readonly autofocus />
 			    	</div>
 			  	</div><!--End of .form-group-->
 
@@ -172,7 +164,7 @@
 			  	<div class="form-group">
 			    	<label for="email" class="col-sm-2 control-label">E-mail <span style="color:Red;">*</span>:</label>
 			    	<div class="col-sm-10">
-			      		<input type="email" class="form-control" id="email" name="email" placeholder="E-mail Address" required value="<?php echo isset($data_arr->{'email'})?$data_arr->{'email'}:(isset($_POST['email'])?$_POST['email']:'')?>" />
+			      		<input type="email" class="form-control" id="email" name="email" placeholder="E-mail Address" required value="<?php echo isset($data_arr->{'email'})?$data_arr->{'email'}:(isset($_POST['email'])?$_POST['email']:'')?>" readonly />
 			    	</div>
 			  	</div><!--End of .form-group-->
 

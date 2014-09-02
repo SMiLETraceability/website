@@ -130,19 +130,63 @@ $ac_data_arr = json_decode($ac_response);
 
 		<div class="col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0">
 				
+				
 									
-				<?php foreach($ac_data_arr->{'activities'} as $item) { 
-                $card_name = 'cards/' . $item->{'type'} . '.php'; 
+				<?php
+				//$sorted_ac_data = usort($ac_data_arr->{'activities'}, "cmp");
+				$sorted_ac_data = BubbleSort($ac_data_arr->{'activities'});
+				 
+				 foreach($sorted_ac_data as $item) { 
+                	$card_name = 'cards/' . $item->{'type'} . '.php'; 
 				
-				if (file_exists($card_name)) {
-				 include $card_name;  
-				 }
-				?>
-					 	
-				<?php } ?>
+					if (file_exists($card_name)) {
+						 include $card_name;  
+					}
+				} 
 				
-					
-			
+				//simple method to sort activities
+				/*function cmp($a, $b)
+				{
+				    return strcmp($a->{'context'}->{'sort'}, $b->{'context'}->{'sort'});
+				}*/
+
+				function BubbleSort($source_array)
+				{
+					$flag = 1;    // set flag to 1 to start first pass
+					$temp;             // holding variable
+					$count = count($source_array); 
+						for($i = 1; ($i <= $count) && $flag==1; $i++)
+						{
+							$flag = 0;
+							for ($j=0; $j < ($count -1); $j++)
+							{
+								if ( ( isset($source_array[$j]->{'context'}->{'sort'}) && isset($source_array[$j+1]->{'context'}->{'sort'}) )  
+									&& ($source_array[$j+1]->{'context'}->{'sort'} > $source_array[$j]->{'context'}->{'sort'}) )       // ascending order simply changes to <
+								{ 
+									$temp = $source_array[$j];             // swap elements
+				                    $source_array[$j] = $source_array[$j+1];
+				                    $source_array[$j+1] = $temp;
+				                    $flag = 1;               // indicates that a swap occurred.
+				                }
+		            	}
+		        	}
+
+		        	return $source_array;
+		    	}
+
+
+				/*function cmp($a, $b)
+				{
+
+				    if ( empty($a->{'context'}->{'sort'}) || empty($b->{'context'}->{'sort'}) || ($a->{'context'}->{'sort'} == $b->{'context'}->{'sort'}) ) {
+				        return 0;
+				    }
+				    //return ($a->{'context'}->{'sort'} < $b->{'context'}->{'sort'}) ? -1 : 1;
+				}*/
+
+
+			?>
+
 			</div>
 		</div>
 </div>

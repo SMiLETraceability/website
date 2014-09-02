@@ -40,7 +40,11 @@
 			                 <!--
 					<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/production_help.png" alt="">'>Sample Preview</button>
 
--->							                 
+-->							  
+
+                            <input type="integer" class="form-control" style="display:none;" id="production_sort" name="production_sort" placeholder="Enter an integer" title="Sort order value." value="0">
+
+
 					
 
                    

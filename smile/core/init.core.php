@@ -25,7 +25,8 @@
  	define("API_MOBILE_KEY","aba778b08bf5d2376ce2c7bd0be60ba7");
 
 	//Development mode:
-	define("APIURL","http://139.133.80.9:8080/smile-server/api-1.1");
+	//define("APIURL","http://139.133.73.55:9090/smile-server/api-1.1");
+	define("APIURL","http://smile.abdn.ac.uk:8080/smile-server/api-1.1");
 	//Deployment mode:
 	//define("APIURL","http://localhost:8080/smile-server/api-1.1");
 

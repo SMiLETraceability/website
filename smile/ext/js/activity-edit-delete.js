@@ -45,7 +45,7 @@ $('#edit-production').on('show.bs.modal', function(e) {
           var id = $(e.relatedTarget).data('activity-id');
 
           var description = $("#activity_"+id+"_description").text();
-          var video = $("#activity_"+id+"_video").attr("src");
+          var video = $("#activity_"+id+"_video").attr("url");
           var picture = $("#activity_"+id+"_picture").attr("src");
           var form_action = $("#edit-production .edit-production-form").attr("action");
 

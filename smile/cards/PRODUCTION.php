@@ -20,9 +20,12 @@
                 <div class="panel-body">
                 <p id="activity_<?php echo $item->{'id'}?>_description"><?php echo nl2br($item->{'context'}->{'description'})?></p>
                 
-                 <?php if ($item->{'context'}->{'video'} != '') { ?>
+                 <?php if ($item->{'context'}->{'video'} != '') { 
+                    //extract youtube id from youtube url
+                    preg_match('/[\\?\\&]v=([^\\?\\&]+)/',$item->{'context'}->{'video'},$matches);// $matches[1] should contain the youtube id 
+                    $youtube_id = $matches[1];?>
                    <div class="js-video">
-                    <iframe id="activity_<?php echo $item->{'id'}?>_video" src="<?php echo $item->{'context'}->{'video'}?>" frameborder="0" allowfullscreen></iframe>
+                    <iframe id="activity_<?php echo $item->{'id'}?>_video" src="http://www.youtube.com/embed/<?php echo $youtube_id?>" url="<?php echo $item->{'context'}->{'video'}?>" frameborder="0" allowfullscreen></iframe>
                    </div>
                  <?php } ?>
                  

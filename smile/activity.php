@@ -25,6 +25,8 @@ if($activity === "PRODUCTION"){
 		$p_image       = $_POST['production_picture'];
 	}
 
+	$sort = $_POST['production_sort'];
+
 	//Check if video is empty:
 	if(empty($p_video) == true){
 		$p_video = "";
@@ -43,7 +45,8 @@ if($activity === "PRODUCTION"){
 		'context'=> array(
 			'description'=> $p_description, 
 			'video' => $p_video,
-			'image' => $p_image
+			'image' => $p_image,
+			'sort' => $sort
 			)
 		);
 

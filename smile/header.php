@@ -76,7 +76,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li class="dropdown-header">Other Information</li>
+                                <li><a href="profile-business.php">Profile</a></li>
                                 <li><a href="#">About us</a></li>
                                 <li><a href="#">Contact us</a></li>
                                 <li><a href="#">Privacy policy</a></li>

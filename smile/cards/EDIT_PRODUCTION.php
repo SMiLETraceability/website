@@ -23,7 +23,7 @@
 					<div class="form-group">
 						<label for="production_video" class="col-sm-3 control-label">Video URL:</label>
 						<div class="col-md-8">
-							<input type="text" class="form-control" id="production_video" name="production_video" placeholder="Video url (Youtube)" title="Video link." >
+							<input type="text" class="form-control" id="production_video" name="production_video" placeholder="Enter video url (Youtube)" title="Video link." >
 						</div>
 					</div><!--End of .form-group-->
 					<br />
@@ -31,7 +31,7 @@
 					<div class="form-group">
 						<label for="production_picture" class="col-sm-3 control-label">Picture URL:</label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" id="production_picture" name="production_picture" placeholder="Picture url:" title="Picture link.">
+							<input type="text" class="form-control" id="production_picture" name="production_picture" placeholder="Enter picture url" title="Picture link.">
 						</div>
 						<div class="col-sm-1">		
 						 		<span class="btn btn-primary btn-file">Browse<input id="photo_upload_production" type="file" name="files[]" data-url="http://smile.abdn.ac.uk/smile/server/php/" multiple></span>
@@ -41,7 +41,14 @@
 					<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/production_help.png" alt="">'>Sample Preview</button>
 
 -->							                 
-					
+					<div class="form-group">
+						<label for="production_sort" class="col-sm-3 control-label">Sort Order:</label>
+						<div class="col-md-8">
+							<input type="integer" class="form-control" id="production_sort" name="production_sort" placeholder="Enter an integer" title="Sort order value." >
+						</div>
+					</div><!--End of .form-group-->
+					<br />
+
 
                    
                 </div>
