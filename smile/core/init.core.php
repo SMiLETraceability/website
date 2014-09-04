@@ -26,9 +26,9 @@
 
 	//Development mode:
 	//define("APIURL","http://139.133.73.55:9090/smile-server/api-1.1");
-	define("APIURL","http://smile.abdn.ac.uk:8080/smile-server/api-1.1");
+	//define("APIURL","http://smile.abdn.ac.uk:8080/smile-server/api-1.1");
 	//Deployment mode:
-	//define("APIURL","http://localhost:8080/smile-server/api-1.1");
+	define("APIURL","http://localhost:8080/smile-server/api-1.1");
 
 	//Path to file:
 	include dirname(__FILE__)."/inc/rest.inc.php";

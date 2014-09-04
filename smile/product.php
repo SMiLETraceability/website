@@ -143,12 +143,6 @@ $ac_data_arr = json_decode($ac_response);
 						 include $card_name;  
 					}
 				} 
-				
-				//simple method to sort activities
-				/*function cmp($a, $b)
-				{
-				    return strcmp($a->{'context'}->{'sort'}, $b->{'context'}->{'sort'});
-				}*/
 
 				function BubbleSort($source_array)
 				{
@@ -161,7 +155,7 @@ $ac_data_arr = json_decode($ac_response);
 							for ($j=0; $j < ($count -1); $j++)
 							{
 								if ( ( isset($source_array[$j]->{'context'}->{'sort'}) && isset($source_array[$j+1]->{'context'}->{'sort'}) )  
-									&& ($source_array[$j+1]->{'context'}->{'sort'} > $source_array[$j]->{'context'}->{'sort'}) )       // ascending order simply changes to <
+									&& ($source_array[$j+1]->{'context'}->{'sort'} < $source_array[$j]->{'context'}->{'sort'}) )       // ascending order simply changes to <
 								{ 
 									$temp = $source_array[$j];             // swap elements
 				                    $source_array[$j] = $source_array[$j+1];
@@ -173,17 +167,6 @@ $ac_data_arr = json_decode($ac_response);
 
 		        	return $source_array;
 		    	}
-
-
-				/*function cmp($a, $b)
-				{
-
-				    if ( empty($a->{'context'}->{'sort'}) || empty($b->{'context'}->{'sort'}) || ($a->{'context'}->{'sort'} == $b->{'context'}->{'sort'}) ) {
-				        return 0;
-				    }
-				    //return ($a->{'context'}->{'sort'} < $b->{'context'}->{'sort'}) ? -1 : 1;
-				}*/
-
 
 			?>
 

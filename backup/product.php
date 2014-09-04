@@ -91,7 +91,9 @@ $ac_data_arr = json_decode($ac_response);
 <?php include('cards/NEW_PRODUCTION.php'); ?>
 <?php include('cards/NEW_RECIPE.php'); ?>
 
-
+<?php include('cards/EDIT_INGREDIENT.php'); ?>
+<?php include('cards/EDIT_PRODUCTION.php'); ?>
+<?php include('cards/EDIT_RECIPE.php'); ?>
 
 <div class="container-fluid">
 	<div class="row">

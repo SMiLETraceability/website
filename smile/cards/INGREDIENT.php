@@ -29,11 +29,11 @@
                     <?php if ($item->{'context'}->{'image'} != '') { ?>             
                     <h4>What did we use?</h4>
                     <?php } ?>
-                    <p id="activity_<?php echo $item->{'id'}?>_name" style="display:none;"><?php echo nl2br($item->{'context'}->{'name'}) ?> </p>
-                    <p id="activity_<?php echo $item->{'id'}?>_description"><?php echo nl2br($item->{'context'}->{'description'}) ?> </p>
-                    <p id="activity_<?php echo $item->{'id'}?>_producer"><strong>Producer: </strong><?php echo $item->{'context'}->{'producer'}?> </p>
-                    <p id="activity_<?php echo $item->{'id'}?>_location"><strong>Location: </strong><?php echo $item->{'context'}->{'location'}?> </p>
-                    
+                    <p id="activity_<?php echo $item->{'id'}?>_name" style="display:none;"><?php echo nl2br($item->{'context'}->{'name'})?></p>
+                    <p id="activity_<?php echo $item->{'id'}?>_description"><?php echo nl2br($item->{'context'}->{'description'})?></p>
+                    <p id="activity_<?php echo $item->{'id'}?>_producer"><strong>Producer: </strong><?php echo $item->{'context'}->{'producer'}?></p>
+                    <p id="activity_<?php echo $item->{'id'}?>_location"><strong>Location: </strong><?php echo $item->{'context'}->{'location'}?></p>
+                    <p id="activity_<?php echo $item->{'id'}?>_sort" style="display:none;"><?php echo nl2br($item->{'context'}->{'sort'})?></p>
                 </div>
                 <div class="panel-footer text-center">
                     <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>

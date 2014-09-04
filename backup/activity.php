@@ -2,8 +2,11 @@
 
 $prod_id  = $_GET['prodid'];
 $activity = $_GET['activity'];
-$dataArr  = array();
+$activityID = $_GET['activityID'];
 
+$call = $_GET['call']; //adding a new activity or editing previous one
+
+$dataArr  = array();
 
 if($activity === "PRODUCTION"){
 
@@ -44,25 +47,6 @@ if($activity === "PRODUCTION"){
 			)
 		);
 
-	//URL of the REST call:
-	$url 	 = APIURL."/activity";
-
-	//Encode data array as JSON:
-	$data 	 = json_encode($dataArr);
-
-	//Create the headers:
-	$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
-
-	//Create the REST call:
-	$response  = rest_post($url, $data, $headers);
-
-	//Decode the json object:
-	$userobj = json_decode($response);
-
-	header("Location: product.php?prodid=".$prod_id."&activity=".$activity);
-	die();
-
-
 }else if($activity === "RECIPE") {
 	
 	if(isset($_POST['recipe_description'])){
@@ -90,24 +74,6 @@ if($activity === "PRODUCTION"){
 			'image' => $r_image 
 			)
 		);
-
-	//URL of the REST call:
-	$url 	 = APIURL."/activity";
-
-	//Encode data array as JSON:
-	$data 	 = json_encode($dataArr);
-
-	//Create the headers:
-	$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
-
-	//Create the REST call:
-	$response  = rest_post($url, $data, $headers);
-
-	//Decode the json object:
-	$userobj = json_decode($response);
-
-	header("Location: product.php?prodid=".$prod_id."&activity=".$activity);
-	die();
 
 }else if($activity === "INGREDIENT"){
 
@@ -140,27 +106,39 @@ if($activity === "PRODUCTION"){
 						'location'    => $ingredientProducerLocation
 						)
 					);
-		//URL of the REST call:
-		$url 	 = APIURL."/activity";
 
-		//Encode data array as JSON:
-		$data 	 = json_encode($dataArr);
 
-		//Create the headers:
-		$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
+}
 
-		//Create the REST call:
-		$response  = rest_post($url, $data, $headers);
+	//Encode data array as JSON:
+	$data 	 = json_encode($dataArr);
 
-		//Decode the json object:
-		$userobj = json_decode($response);
-		
-		//Empty array, to repeat the process:
-		$dataArr = array();
+	//Create the headers:
+	$headers = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
 	
+	switch ($call) {
+		case 'new':
+			//URL of the REST call:
+			$url 	 = APIURL."/activity/";
+			$response  = rest_post($url, $data, $headers);
+			break;
+		case 'edit':
+			$url 	 = APIURL."/activity/".$activityID;
+			$response  = rest_put($url, $data, $headers);
+
+			break;
+		
+		default:
+			# code...
+			break;
+	}
+
+	//Decode the json object:
+	//$userobj = json_decode($response);
+	//Empty array, to repeat the process:
+	$dataArr = array();
 
 	header("Location: product.php?prodid=".$prod_id."&activity=".$activity);
 	die();
-}
 
 ?>

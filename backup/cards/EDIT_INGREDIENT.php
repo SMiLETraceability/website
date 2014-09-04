@@ -40,17 +40,11 @@
                        <div class="col-sm-1">		
                         		<span class="btn btn-primary btn-file">Browse<input id="photo_upload_ingredient" type="file" name="files[]" data-url="http://smile.abdn.ac.uk/smile/server/php/" multiple></span>
                         </div>
+                       
+                       
                        </div><!--End of .form-group-->
                                               
                     
-                        <div class="form-group">
-                      <label for="ingredient_sort" class="col-sm-3 control-label">Sort Order:</label>
-                      <div class="col-md-8">
-                        <input type="integer" class="form-control" id="ingredient_sort" name="ingredient_sort" placeholder="Enter an integer" title="Sort order value." required>
-                      </div>
-                    </div><!--End of .form-group-->
-                    <br />
-
                 </div>
                 
                 <div class="modal-footer">

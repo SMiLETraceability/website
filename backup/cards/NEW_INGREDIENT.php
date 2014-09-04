@@ -2,7 +2,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
             
-            	<form class="form-horizontal form-subingredients-add ingredients" action="activity.php?activity=INGREDIENT&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
+            	<form class="form-horizontal form-subingredients-add ingredients" action="activity.php?activity=INGREDIENT&call=new&prodid=<?php echo $_GET['prodid']; ?>" method="post" role="form">
             	
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

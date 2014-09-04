@@ -37,6 +37,14 @@
 								<button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-original-title = "This is how it will look for the consumer" data-content='<img src="ext/img/recipe_help.png" alt="">'>Sample Preview</button>
 									-->				                    
 	                    
+	                    <div class="form-group">
+                      <label for="ingredient_sort" class="col-sm-3 control-label">Sort Order:</label>
+                      <div class="col-md-8">
+                        <input type="integer" class="form-control" id="recipe_sort" name="recipe_sort" placeholder="Enter an integer" title="Sort order value." required>
+                      </div>
+                    </div><!--End of .form-group-->
+                    <br />
+
 	                </div>
 	                
 	                <div class="modal-footer">

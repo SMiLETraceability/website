@@ -34,7 +34,7 @@
                    <img id="activity_<?php echo $item->{'id'}?>_picture" src="<?php echo $item->{'context'}->{'image'}?>" class="panel-image-preview">
                  <?php } ?>
                  
-                 
+                    <p id="activity_<?php echo $item->{'id'}?>_sort" style="display:none;"><?php echo nl2br($item->{'context'}->{'sort'})?></p>
                 </div>
                 <div class="panel-footer text-center">
                     <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>

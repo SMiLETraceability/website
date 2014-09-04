@@ -62,7 +62,7 @@
         
        <script src="ext/js/uploads.js"></script>
        
-       <script src="ext/js/delete.js"></script>
+       <script src="ext/js/activity-edit-delete.js"></script>
        <script src="ext/js/collections.js"></script>
         
         <script type="text/javascript">

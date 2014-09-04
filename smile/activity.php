@@ -25,7 +25,11 @@ if($activity === "PRODUCTION"){
 		$p_image       = $_POST['production_picture'];
 	}
 
-	$sort = $_POST['production_sort'];
+	//Production sort:
+	if(isset($_POST['production_sort'])){
+		$sort = $_POST['production_sort'];
+	}
+
 
 	//Check if video is empty:
 	if(empty($p_video) == true){
@@ -36,6 +40,13 @@ if($activity === "PRODUCTION"){
 	if(empty($p_image) == true){
 		$p_image = "";
 	}
+
+
+	//Check if sort is empty:
+	if(empty($sort) == true){
+		$sort = 0;
+	}
+
 
 	//Create the array:
 	$dataArr = array(
@@ -60,6 +71,14 @@ if($activity === "PRODUCTION"){
 		$r_image = $_POST['recipe_image'];	//recipe image
 	}
 
+	if(isset($_POST['recipe_sort'])){
+		$sort = $_POST['recipe_sort'];
+	}
+
+	if(empty($sort) == true){
+		$sort = 2;
+	}
+
 	if(empty($r_description) == true){
 		$r_description = "";
 	}
@@ -74,7 +93,8 @@ if($activity === "PRODUCTION"){
 		'recordId'=>$prod_id,
 		'context'=> array(
 			'description'=> $r_description, 
-			'image' => $r_image 
+			'image' => $r_image,
+			'sort' => $sort
 			)
 		);
 
@@ -96,6 +116,14 @@ if($activity === "PRODUCTION"){
 			$ingredientImage  = "";
 	}
 
+	if(isset($_POST['ingredient_sort'])){
+		$sort = $_POST['ingredient_sort'];
+	}
+
+	if(empty($sort) == true){
+		$sort = 1;
+	}
+
 
 		$dataArr = array(
 					'type'=>$activity,
@@ -106,7 +134,8 @@ if($activity === "PRODUCTION"){
 						'description' => $ingredientDescription, 
 						'image' 	  => $ingredientImage,
 						'producer'    => $ingredientProducerName,
-						'location'    => $ingredientProducerLocation
+						'location'    => $ingredientProducerLocation,
+						'sort' => $sort
 						)
 					);
 

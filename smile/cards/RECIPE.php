@@ -26,7 +26,9 @@
                  <?php if ($item->{'context'}->{'image'} != '') { ?>
                     <h4>How to use this product?</h4>
                  <?php } ?>
-                    <p id="activity_<?php echo $item->{'id'}?>_description"><?php echo nl2br($item->{'context'}->{'description'})?> </p>
+                    <p id="activity_<?php echo $item->{'id'}?>_description"><?php echo nl2br($item->{'context'}->{'description'})?></p>
+                    <p id="activity_<?php echo $item->{'id'}?>_sort" style="display:none;"><?php echo nl2br($item->{'context'}->{'sort'})?></p>
+
                 </div>
                 <div class="panel-footer text-center">
                     <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>
