@@ -81,6 +81,40 @@
 
 <!-- end of delete modal window -->
 
+<!-- ship modal window -->
+
+<div class="modal fade" id="select-shipment-service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Select Shipment Service</h4>
+                </div>
+            
+                <div class="modal-body">
+                    <select id="shipment-service-type" class="form-control">
+                    	<option value="default">SMiLE Default</option>
+                    	<option value="fedex">FedEx</option>
+                    	<option value="dhl">DHL</option>
+                    	<option value="ups">UPS</option>
+                    </select>
+
+                    <br/>
+                    <input type="text" class="form-control" id="tracking-number" name="tracking-number" placeholder="Enter tracking number" style="display:none;">
+
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" class="btn btn-success success" onClick="submitTrackingNumber()">Submit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- end of ship modal window -->
+
 
 <div class="container-fluid">
      	
@@ -102,6 +136,11 @@
 				</div>
 			-->
 			<?php include('cards/DESCRIPTION.php'); ?>
+				
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					<?php echo "<a href=\"#\" data-label=\"\" class=\"btn btn-success active\" role=\"button\" data-toggle=\"modal\" data-target=\"#select-shipment-service\">Ship Box</a>";?>
+				</div>
+
 		</div> 
 
 		<div class="col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
@@ -124,3 +163,35 @@
 	</div><!--Container Ends here-->  
 
 <?php include('footer.php'); ?>
+
+<script type="text/javascript">
+	$("#select-shipment-service").change(function(){
+		var shipment = $('#select-shipment-service option:selected').text();
+		if(shipment=='SMiLE Default')
+			$("#tracking-number").css('display','none');
+		else
+			$("#tracking-number").css('display','block');
+	});
+
+	/*
+	*/
+	function submitTrackingNumber(){
+		var tracking_number = $('#tracking-number').text();
+		var shipment_service_type = $('#shipment-service-type').val();
+		//alert(shipment_service_type);
+
+		$.ajax{
+			type:'GET',
+			url:'collection-scripts.php?call=shipment_service_submit&tracking_number='+tracking_number+'&service='+shipment_service_type,
+			success:function(response){
+
+			},
+			error:function(response){
+
+			}
+
+		}
+
+		return false;
+	}
+</script>
