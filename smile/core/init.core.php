@@ -47,5 +47,4 @@
 	define("FEDEX_ACCOUNT_NO","604530644");
 	define("FEDEX_METER_NO","118648614");
 
-
 ?>

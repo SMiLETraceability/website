@@ -1,88 +1,97 @@
-<?php include('core/init.core.php');?>
-<?php
+<?php include('../../../../../core/init.core.php');
 
-$tracking_no = $_GET['tracking_no'];
+	//include('../../library/fedex-common.php5');
+	include('fedex-common.php5');
 
-// Copyright 2009, FedEx Corporation. All rights reserved.
-// Version 6.0.0
+function fedex_submit_tracking($tracking_no){
 
-require_once('../../library/fedex-common.php5');
+	//The WSDL is not included with the sample code.
+	//Please include and reference in $path_to_wsdl variable.
+//	$path_to_wsdl = "../../wsdl/TrackService_v9.wsdl";
+	$path_to_wsdl = "/TrackService_v9.wsdl";
+	//return 1;
+	ini_set("soap.wsdl_cache_enabled", "0");
 
-//The WSDL is not included with the sample code.
-//Please include and reference in $path_to_wsdl variable.
-$path_to_wsdl = "../../wsdl/TrackService_v9.wsdl";
+	$client = new SoapClient($path_to_wsdl, array('trace' => 1)); // Refer to http://us3.php.net/manual/en/ref.soap.php for more information
 
-ini_set("soap.wsdl_cache_enabled", "0");
-
-$client = new SoapClient($path_to_wsdl, array('trace' => 1)); // Refer to http://us3.php.net/manual/en/ref.soap.php for more information
-
-$request['WebAuthenticationDetail'] = array(
-	'UserCredential' =>array(
-	//	'Key' => getProperty('key'), 
-	//	'Password' => getProperty('password')
-		'Key' => FEDEX_KEY, 
-		'Password' => FEDEX_PASSWORD
-	)
-);
-$request['ClientDetail'] = array(
-	//'AccountNumber' => getProperty('shipaccount'), 
-	//'MeterNumber' => getProperty('meter')
-	'AccountNumber' => FEDEX_ACCOUNT_NO, 
-	'MeterNumber' => FEDEX_METER_NO
-);
-$request['TransactionDetail'] = array('CustomerTransactionId' => '*** Track Request using PHP ***');
-$request['Version'] = array(
-	'ServiceId' => 'trck', 
-	'Major' => '9', 
-	'Intermediate' => '1', 
-	'Minor' => '0'
-);
-$request['SelectionDetails'] = array(
-	'PackageIdentifier' => array(
-		//'Type' => 'TRACKING_NUMBER_OR_DOORTAG', //797843158299
-		'Type' => 'TRACKING_NUMBER_OR_DOORTAG', //797843158299
-		//'Value' => getProperty('trackingnumber') // Replace 'XXX' with a valid tracking identifier
-		'Value' => $tracking_no // Replace 'XXX' with a valid tracking identifier
-	)
-);
+	return 1;
 
 
+	$request['WebAuthenticationDetail'] = array(
+		'UserCredential' =>array(
+		//	'Key' => getProperty('key'), 
+		//	'Password' => getProperty('password')
+			'Key' => FEDEX_KEY, 
+			'Password' => FEDEX_PASSWORD
+		)
+	);
+	$request['ClientDetail'] = array(
+		//'AccountNumber' => getProperty('shipaccount'), 
+		//'MeterNumber' => getProperty('meter')
+		'AccountNumber' => FEDEX_ACCOUNT_NO, 
+		'MeterNumber' => FEDEX_METER_NO
+	);
+	$request['TransactionDetail'] = array('CustomerTransactionId' => '*** Track Request using PHP ***');
+	$request['Version'] = array(
+		'ServiceId' => 'trck', 
+		'Major' => '9', 
+		'Intermediate' => '1', 
+		'Minor' => '0'
+	);
+	$request['SelectionDetails'] = array(
+		'PackageIdentifier' => array(
+			//'Type' => 'TRACKING_NUMBER_OR_DOORTAG', //797843158299
+			'Type' => 'TRACKING_NUMBER_OR_DOORTAG', //797843158299
+			//'Value' => getProperty('trackingnumber') // Replace 'XXX' with a valid tracking identifier
+			'Value' => $tracking_no // Replace 'XXX' with a valid tracking identifier
+		)
+	);
 
-try {
-	if(setEndpoint('changeEndpoint')){
-		$newLocation = $client->__setLocation(setEndpoint('endpoint'));
-	}
-	
-	$response = $client ->track($request);
+	$response = -1;
 
-    if ($response -> HighestSeverity != 'FAILURE' && $response -> HighestSeverity != 'ERROR'){
-		if($response->HighestSeverity != 'SUCCESS'){
-			echo '<table border="1">';
-			echo '<tr><th>Track Reply</th><th>&nbsp;</th></tr>';
-			trackDetails($response->Notifications, '');
-			echo '</table>';
-		}else{
-	    	if ($response->CompletedTrackDetails->HighestSeverity != 'SUCCESS'){
-				echo '<table border="1">';
-			    echo '<tr><th>Shipment Level Tracking Details</th><th>&nbsp;</th></tr>';
-			    trackDetails($response->CompletedTrackDetails, '');
-				echo '</table>';
-			}else{
-				//echo '<table border="1">';
-			    //echo '<tr><th>Package Level Tracking Details</th><th>&nbsp;</th></tr>';
-			    //trackDetails($response->CompletedTrackDetails->TrackDetails, '');
-			   	trackRawDetails($response->CompletedTrackDetails->TrackDetails, '');
-
-				//echo '</table>';
-			}
+	try {
+		if(setEndpoint('changeEndpoint')){
+			$newLocation = $client->__setLocation(setEndpoint('endpoint'));
 		}
-        printSuccess($client, $response);
-    }else{
-        printError($client, $response);
-    } 
-    
-    writeToLog($client);    // Write to log file   
-} catch (SoapFault $exception) {
-    printFault($exception, $client);
+		
+		$response = $client ->track($request);
+
+	    if ($response->HighestSeverity != 'FAILURE' && $response->HighestSeverity != 'ERROR'){
+			if($response->HighestSeverity != 'SUCCESS'){
+				//echo '<table border="1">';
+				//echo '<tr><th>Track Reply</th><th>&nbsp;</th></tr>';
+				//trackDetails($response->Notifications, '');
+				//echo '</table>';
+				$response = -1;
+			}/*else{
+		    	if ($response->CompletedTrackDetails->HighestSeverity != 'SUCCESS'){
+					//echo '<table border="1">';
+				    //echo '<tr><th>Shipment Level Tracking Details</th><th>&nbsp;</th></tr>';
+				    //trackDetails($response->CompletedTrackDetails, '');
+					//echo '</table>';
+				}else{
+					//echo '<table border="1">';
+				    //echo '<tr><th>Package Level Tracking Details</th><th>&nbsp;</th></tr>';
+				    //trackDetails($response->CompletedTrackDetails->TrackDetails, '');
+				   	//trackRawDetails($response->CompletedTrackDetails->TrackDetails, '');
+
+					//echo '</table>';
+				}
+			}*/
+	     //   printSuccess($client, $response);
+	    }else{
+	       $response = -1;
+	       // printError($client, $response);
+	    } 
+	    
+	    //writeToLog($client);    // Write to log file   
+	}
+	 catch (SoapFault $exception) {
+	 	$response = -1;
+	    //printFault($exception, $client);
+	}
+
+	return $response;
 }
+
 ?>

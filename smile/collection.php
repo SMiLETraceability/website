@@ -1,5 +1,5 @@
 <?php include('core/init.core.php');?>
-
+<?php include('collection-scripts.php');?>
 <?php
 
     $collection_id = $_GET['colid'];
@@ -165,32 +165,35 @@
 <?php include('footer.php'); ?>
 
 <script type="text/javascript">
+	
+	$(document).ready(function() {
 	$("#select-shipment-service").change(function(){
 		var shipment = $('#select-shipment-service option:selected').text();
 		if(shipment=='SMiLE Default')
 			$("#tracking-number").css('display','none');
 		else
 			$("#tracking-number").css('display','block');
+		});
 	});
-
 	/*
 	*/
 	function submitTrackingNumber(){
-		var tracking_number = $('#tracking-number').text();
+		var tracking_number = $('#tracking-number').val();
 		var shipment_service_type = $('#shipment-service-type').val();
-		//alert(shipment_service_type);
+		alert(shipment_service_type);
 
-		$.ajax{
+		$.ajax({
 			type:'GET',
+			dataType:'json',
 			url:'collection-scripts.php?call=shipment_service_submit&tracking_number='+tracking_number+'&service='+shipment_service_type,
 			success:function(response){
-
+        		console.log(response);
 			},
 			error:function(response){
-
+				alert(response);
 			}
 
-		}
+		});
 
 		return false;
 	}
