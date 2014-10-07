@@ -1,6 +1,6 @@
 <?php
 //include('include/shipment/fedex/TrackWebServiceClient/Track/TrackWebServiceClient.php');
-include('include/shipment/fedex/TrackWebServiceClient/Track/fedex-common.php5');
+include('fedex-common.php5');
 
 $call = $_GET['call']; //either update tracking data or submit new tracking number
 $service_type = $_GET['service'];
@@ -73,13 +73,13 @@ function fedex_submit_tracking($tracking_no){
 	//The WSDL is not included with the sample code.
 	//Please include and reference in $path_to_wsdl variable.
 //	$path_to_wsdl = "../../wsdl/TrackService_v9.wsdl";
-	$path_to_wsdl = "'include/shipment/fedex/TrackWebServiceClient/Track/TrackService_v9.wsdl";
+	$path_to_wsdl = "include/shipment/fedex/TrackWebServiceClient/Track/TrackService_v9.wsdl";
 	//return 1;
 	ini_set("soap.wsdl_cache_enabled", "0");
 
 	$client = new SoapClient($path_to_wsdl, array('trace' => 1)); // Refer to http://us3.php.net/manual/en/ref.soap.php for more information
 
-	return 1;
+	//return 1;
 
 
 	$request['WebAuthenticationDetail'] = array(
