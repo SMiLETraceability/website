@@ -1,4 +1,3 @@
-<?php include('core/init.core.php');?>
 <?php include('collection-scripts.php');?>
 <?php
 
@@ -29,7 +28,6 @@
 	
      
 ?>
-
 <?php
 
 	//URL of the REST call:
@@ -51,7 +49,6 @@
 	$ac_data_arr = json_decode($ac_response);
 
 ?>
-
 <?php include('header.php'); ?>
 
 <!-- delete modal window -->
@@ -180,14 +177,19 @@
 	function submitTrackingNumber(){
 		var tracking_number = $('#tracking-number').val();
 		var shipment_service_type = $('#shipment-service-type').val();
-		alert(shipment_service_type);
+		//alert(shipment_service_type);
 
 		$.ajax({
 			type:'GET',
 			dataType:'json',
 			url:'collection-scripts.php?call=shipment_service_submit&tracking_number='+tracking_number+'&service='+shipment_service_type,
 			success:function(response){
-        		console.log(response);
+        		//console.log(response);
+        		if(response=='Error')
+        			alert('There was an Error!');
+        		else
+        			saveTrackingData(response);
+
 			},
 			error:function(response){
 				alert(response);
