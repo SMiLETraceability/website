@@ -69,11 +69,61 @@ function submit_shipment($service_type,$tracking_number){
 				# code...
 				break;
 		}
+		if($shipment_result!=-1)
+			saveTrackingData($shipment_result);
 
 		return $shipment_result;
 	}
 
-function fedex_submit_tracking($tracking_no, $fedex_key, $fedex_password,$fedex_account, $fedex_meter){
+
+    function saveTrackingData($tracking_data){
+    	//fetch current data
+
+		$act_get_url = APIURL."/activity/collection/".$_GET['colid'];
+		$act_post_url = APIURL."/activity";
+
+		//Headers of the REST call:
+		$headers  = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
+
+		//REST response:
+		$get_response =  rest_get($act_get_url,$headers);
+
+		//Decode the JSON object:
+		$data_arr = json_decode($get_response);
+
+		foreach ($tracking_data as $tkey => $tvalue) {
+			//foreach ($data_arr as $dkey => $dvalue) {
+			//	if($tvalue['uid']==$dvalue->)
+				# code...
+			//}
+
+			$dataArr = array(
+					'type'=>'CHECKIN',
+					'entity'=>'collection',
+					'recordId'=>$_GET['colid'],
+					'timestamp'=>$tvalue['timestamp'],
+					'context'=> array(
+						'service' 	=> $tvalue['service'],
+						'uid' => $tvalue['uid'],
+						'city' => $tvalue['address']['city'],
+						'state'    => $tvalue['address']['state'],
+						'country'    => $tvalue['address']['country'],
+						'countryCode' => $tvalue['address']['countryCode']
+						)
+					);
+
+			$data 	 = json_encode($dataArr);
+			$post_response  = rest_post($act_post_url, $data, $headers);
+
+			# code...
+		}
+    	//check for duplicates
+    	//store in database accordingly
+    }
+
+    /*fedex methods*/
+
+    function fedex_submit_tracking($tracking_no, $fedex_key, $fedex_password,$fedex_account, $fedex_meter){
 
 	//The WSDL is not included with the sample code.
 	//Please include and reference in $path_to_wsdl variable.
