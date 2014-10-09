@@ -79,8 +79,8 @@ function submit_shipment($service_type,$tracking_number){
     function saveTrackingData($tracking_data){
     	//fetch current data
 
-		$act_get_url = APIURL."/activity/collection/".$_GET['colid'];
-		$act_post_url = APIURL."/activity";
+		$act_get_url = APIURL."/activity/collection/".$_GET['colid']; //get current checkins data for this collection box
+		$act_post_url = APIURL."/activity"; //posting checkins
 
 		//Headers of the REST call:
 		$headers  = array("Content-Type: application/json","ApplicationAuthorization: ".API_APP_KEY,"BusinessAuthorization: ".$_SESSION['account']['currentBusinessKey'],"Authorization: ".$_SESSION['account']['apiKey']);
@@ -103,11 +103,12 @@ function submit_shipment($service_type,$tracking_number){
 					'recordId'=>$_GET['colid'],
 					'timestamp'=>$tvalue['timestamp'],
 					'context'=> array(
-						'service' 	=> $tvalue['service'],
-						'uid' => $tvalue['uid'],
-						'city' => $tvalue['address']['city'],
-						'state'    => $tvalue['address']['state'],
-						'country'    => $tvalue['address']['country'],
+						'status'	=> $tvalue['severity'],
+						'service'	=> $tvalue['service'],
+						'uid'		=> $tvalue['uid'],
+						'city'		=> $tvalue['address']['city'],
+						'state'		=> $tvalue['address']['state'],
+						'country'	=> $tvalue['address']['country'],
 						'countryCode' => $tvalue['address']['countryCode']
 						)
 					);

@@ -125,21 +125,32 @@
 			</h1>
 		</div>
       
-	    <div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2">
-			<!--	<div class="thumbnail"> 
-					<?php 
-					echo '<img src="'.$data_arr->{'product'}->{'photos'}[0].'" alt="">';
-					?> 
-				</div>
-			-->
-			<?php include('cards/DESCRIPTION.php'); ?>
-				
-				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<?php echo "<a href=\"#\" data-label=\"\" class=\"btn btn-success active\" role=\"button\" data-toggle=\"modal\" data-target=\"#select-shipment-service\">Ship Box</a>";?>
-				</div>
+      	<div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2">
+		    <div class="row">
+				<!--	<div class="thumbnail"> 
+						<?php 
+						echo '<img src="'.$data_arr->{'product'}->{'photos'}[0].'" alt="">';
+						?> 
+					</div>
+				-->
+				<?php include('cards/DESCRIPTION.php'); ?>
+					
+					<div>
+						<?php echo "<a href=\"#\" data-label=\"\" class=\"btn btn-success active\" role=\"button\" data-toggle=\"modal\" data-target=\"#select-shipment-service\">Ship Box</a>";?>
+					</div>
 
-		</div> 
+			</div> 
+			<div class="row">
+				<!--	<div class="thumbnail"> 
+						<?php 
+						echo '<img src="'.$data_arr->{'product'}->{'photos'}[0].'" alt="">';
+						?> 
+					</div>
+				-->
 
+			</div> 
+
+		</div>
 		<div class="col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
 		
 				<?php include('cards/collection-items.php'); ?>
@@ -177,18 +188,19 @@
 	function submitTrackingNumber(){
 		var tracking_number = $('#tracking-number').val();
 		var shipment_service_type = $('#shipment-service-type').val();
-		//alert(shipment_service_type);
+		var collec_id = '<?php echo "$collection_id";?>';
+		//alert(collec_id);
 
 		$.ajax({
 			type:'GET',
 			dataType:'json',
-			url:'collection-scripts.php?call=shipment_service_submit&tracking_number='+tracking_number+'&service='+shipment_service_type,
+			url:'collection-scripts.php?call=shipment_service_submit&tracking_number='+tracking_number+'&service='+shipment_service_type+'&colid='+collec_id,
 			success:function(response){
         		//console.log(response);
         		if(response=='Error')
         			alert('There was an Error!');
         		else
-        			saveTrackingData(response);
+        			alert('successfull!');
 
 			},
 			error:function(response){
