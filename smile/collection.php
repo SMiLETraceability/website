@@ -50,12 +50,11 @@
 
 	$checkins_array=array();
 	foreach ($ac_data_arr->{'activities'} as $item) {
-		if($item->['type']=='CHECKIN')
+		if($item->{'type'}=='CHECKIN')
 			$checkins_array[]=$item;
 		# code...
 	}
 ?>
-
 <?php include('header.php'); ?>
 
 <!-- delete modal window -->
@@ -147,11 +146,20 @@
 					</div>
 
 			</div> 
-			<?php if(count($checkins_array)>0){?>
+			<!--/Shipment Checkins-->
+			<?php if(count($checkins_array)>0){?>	
 			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading"><h4>Shipment Details</h4></div>
+						<div class="panel-body">
+
 				<?php foreach ($checkins_array as $item)
-						include('cards/DESCRIPTION.php'); ?>	
-			</div> <?php }?>
+						include('cards/SHIPMENT.php'); 
+				?>
+						</div> 
+					</div>	
+			</div> <!--/row-->
+			<?php }?>
 
 		</div>
 		<div class="col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
