@@ -44,11 +44,18 @@
 
 
 	//Get activities:
-	$ac_url = APIURL."/activity/collections/".$_GET['colid'];
+	$ac_url = APIURL."/activity/collection/".$_GET['colid'];
 	$ac_response = rest_get($ac_url, $headers);
 	$ac_data_arr = json_decode($ac_response);
 
+	$checkins_array=array();
+	foreach ($ac_data_arr->{'activities'} as $item) {
+		if($item->['type']=='CHECKIN')
+			$checkins_array[]=$item;
+		# code...
+	}
 ?>
+
 <?php include('header.php'); ?>
 
 <!-- delete modal window -->
@@ -140,15 +147,11 @@
 					</div>
 
 			</div> 
+			<?php if(count($checkins_array)>0){?>
 			<div class="row">
-				<!--	<div class="thumbnail"> 
-						<?php 
-						echo '<img src="'.$data_arr->{'product'}->{'photos'}[0].'" alt="">';
-						?> 
-					</div>
-				-->
-
-			</div> 
+				<?php foreach ($checkins_array as $item)
+						include('cards/DESCRIPTION.php'); ?>	
+			</div> <?php }?>
 
 		</div>
 		<div class="col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
