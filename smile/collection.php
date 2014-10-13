@@ -153,8 +153,12 @@
 					<div class="panel-heading"><h4>Shipment Details</h4></div>
 						<div class="panel-body">
 
-				<?php foreach ($checkins_array as $item)
-						include('cards/SHIPMENT.php'); 
+
+				<?php $i = 1;
+						foreach ($checkins_array as $item){
+							include('cards/SHIPMENT.php'); 
+							$i++;
+					}
 				?>
 						</div> 
 					</div>	
