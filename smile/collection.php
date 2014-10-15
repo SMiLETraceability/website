@@ -141,8 +141,11 @@
 				-->
 				<?php include('cards/DESCRIPTION.php'); ?>
 					
-					<div>
-						<?php echo "<a href=\"#\" data-label=\"\" class=\"btn btn-success active\" role=\"button\" data-toggle=\"modal\" data-target=\"#select-shipment-service\">Ship Box</a>";?>
+
+      				<div class="form-group">
+									
+						<?php if(count($checkins_array)<=0) 
+								echo "<a href=\"#\" data-label=\"\" class=\"btn btn-success active\" role=\"button\" data-toggle=\"modal\" data-target=\"#select-shipment-service\">Ship Box</a>";?>
 					</div>
 
 			</div> 
@@ -150,7 +153,7 @@
 			<?php if(count($checkins_array)>0){?>	
 			<div class="row">
 				<div class="panel panel-default">
-					<div class="panel-heading"><h4>Shipment Details</h4></div>
+					<div class="panel-heading"><h4>Shipment Details</h4><?php echo "<a href=\"#\" data-label=\"\" class=\"btn-sm btn-success active\" role=\"button\" data-toggle=\"modal\" data-target=\"#refresh-shipment-service\">Refresh</a>"; ?> </div>
 						<div class="panel-body">
 
 

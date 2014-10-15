@@ -1,14 +1,13 @@
 <?php include('core/init.core.php');
 
-$prod_id  = $_GET['prodid'];
+$col_id  = $_GET['colid'];
 $activity = $_GET['activity'];
-$activityID = $_GET['activityID'];
 
 $call = $_GET['call']; //adding a new activity or editing previous one
 
 $dataArr  = array();
 
-if($activity === "PRODUCTION"){
+if($activity === "CHECKIN"){
 
 	//Production information:
 	if(isset($_POST['production_description'])){
